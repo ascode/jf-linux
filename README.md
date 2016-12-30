@@ -1,8 +1,9 @@
-# zn-linux
-linux note
+# zn-linux  
+linux study note for newbie. If you are a newbie, you can follow it to start. If you are a adept you should find some new change for centos or you can teach me some, and thank you. contact:[http://xiaoyouping.club](http://xiaoyouping.club) or 可以加qq群讨论：23592723
 
 ## 参考
 * [命令集合](/command.md)  
+* [讲解](/explication.md)  
 
 ## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
