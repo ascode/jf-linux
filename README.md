@@ -1,6 +1,9 @@
 # zn-linux
 linux note
 
+## 参考
+* [命令集合](/command.md)
+
 ## 简单任务
 ### 添加用户
 useradd -d /home/newuser newuser 添加用户，并指定用户文件夹路径  
