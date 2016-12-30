@@ -2,7 +2,10 @@
 linux note
 
 ## 参考
-* [命令集合](/command.md)
+* [命令集合](/command.md)  
+
+## 任务列表
+* [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
 
 ## 简单任务
 ### 添加用户

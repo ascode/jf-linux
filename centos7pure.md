@@ -1,10 +1,10 @@
 
-CentOS7mini版本启动网卡、替换yum源
+## CentOS7mini版本启动网卡、替换yum源
 
 最近本人安装了一个CentOS7mini版本的虚拟机，进去之后碰到了一系列问题，因为是精简版本，所以很多软件和插件都需要自己安装，并且没有安装图形化界面，完全是命令行进行操作，目的就是为了熟悉Linux环境下的一些命令和知识。
 
 
-一、启动网卡。
+### 一、启动网卡  
 刚安装的CentOS7mini版本，启动系统后网卡并没有启动，我做了如下操作：
 执行命令：
 
@@ -23,7 +23,7 @@ ping xiaoyouping.club 网络连接成功
 ![](http://image.bgenius.cn/jinfei/github/zn-linux/Screen%20Shot%202016-12-31%20at%203.59.29%20AM.png)
 
 
-二、安装net-tools
+### 二、安装net-tools  
 
 启动网卡之后，接着执行，ifconfig命令，然后终端会提示 -bash:ifconfig:command not found。也就是说不认识这个ifconfig。在此我们需要安装net-tools软件。
 
@@ -32,7 +32,7 @@ ping xiaoyouping.club 网络连接成功
 安装成功之后再执行ifconfig命令，就会看到本机的网络配置信息.
 
 
-三、替换yum源
+### 三、替换yum源  
 
 在此我们用163的yum源替换本机的原始yum源，在国内比较好的，速度比较快的yum源有163、souhu等等，这里我使用的是163的yum源。
 
