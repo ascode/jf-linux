@@ -10,9 +10,9 @@ CentOS7mini版本启动网卡、替换yum源
 cd /etc/sysconfig/network-scripts/
 
 然后ls一下，会发现ifcfg-ens33的一个文件。
-![](http://bgimage.oss-cn-qingdao.aliyuncs.com/jinfei/github/Screen%20Shot%202016-12-31%20at%203.47.51%20AM.png)
+![](http://image.bgenius.cn/jinfei/github/zn-linux/Screen%20Shot%202016-12-31%20at%203.47.51%20AM.png)
 ls -lh 检查这个文件的权限
-![](http://bgimage.oss-cn-qingdao.aliyuncs.com/jinfei/github/Screen%20Shot%202016-12-31%20at%203.40.59%20AM.png)
+![](http://image.bgenius.cn/jinfei/github/zn-linux/Screen%20Shot%202016-12-31%20at%203.40.59%20AM.png)
 
 vi ifcfg-ens33然后将onboot=no改成onboot=yes，保存后退出。
 
