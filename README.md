@@ -7,6 +7,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 
 ## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
+* [安装GitLab Community Edition (CE)](/gitlab.md)
 
 ## 简单任务
 ### 添加用户
@@ -22,3 +23,4 @@ Linux下如何创建新用户通常情况下，处于安全考虑，一般都给
 2. 显式设定密码  
 3. 使用root账户创建新用户的主目录
 4. Linux系统需要主目录的拥有者必须是用户本身，因此，使用root创建主目录以后，还需将拥有者更换成新用户本身  
+
