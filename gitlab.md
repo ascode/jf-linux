@@ -2,6 +2,11 @@
 
 ### 前提条件：  
 1.我在自己电脑上安装了CentOS-7-x86_64-Minimal-1611.iso版本的最小化CentOS7。安装过程我并没有记录，我是使用VMWare 12在Mac电脑上装的虚拟机。为什么选择VMWare 12？因为可以在网上找到免费的序列号。  
+VMware Fusion 8  
+序列号：  
+FY75A-06W1M-H85PZ-0XP7T-MZ8E8  
+ZY7TK-A3D4N-08EUZ-TQN5E-XG2TF   
+FG1MA-25Y1J-H857P-6MZZE-YZAZ6  
 
 2.最小版本CentOS缺乏必要的工具和配置，所以我先执行了本笔记中的任务：[新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)，需要的可以参考。    
 
