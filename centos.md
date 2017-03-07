@@ -9,4 +9,4 @@ cd node-v4.2.4
 ####编译及安装：
 make && make install
 ####验证是否安装配置成功：
-node -v
+node -v  

@@ -4,6 +4,8 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 ## 参考
 * [命令集合](/command.md)  
 * [讲解](/explication.md)  
+* [vi命令](/vicommand.md)  
+* [需要熟悉的文件或者文件夹](folderinlinux.md)
 
 ## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  

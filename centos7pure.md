@@ -5,6 +5,33 @@
 
 
 ### 一、启动网卡  
+跟网络设置相关的文件有两个：  
+/etc/sysconfig/network-scripts/ifcfg-ens33  配置ip地址等网卡信息  
+/etc/resolv.conf  配置DNS服务器地址信息  
+#### /etc/sysconfig/network-scripts/ifcfg-ens33文件配置项  
+TYPE=Ethernet  
+BOOTPROTO=static    
+DEFROUTE=yes  
+PEERDNS=yes  
+PEERROUTES=yes  
+IPV4_FAILURE_FATAL=no  
+IPV6INIT=yes  
+IPV6_AUTOCONF=yes  
+IPV6_DEFROUTE=yes  
+IPV6_PEERDNS=yes  
+IPV6_PEERROUTES=yes  
+IPV6_FAILURE_FATAL=no  
+NAME=eno1677736  
+UUID=62318d04-fb4b-4d5a-8cb7-8a7ad55b3c85  
+DEVICE=eno16777736  
+ONBOOT=yes  
+IPADDR=192.168.1.102  
+NETMASK=255.255.255.0  
+GATEWAY=192.168.1.1  
+
+#### /etc/resolv.conf配置项  
+nameserver 8.8.8.8  
+
 刚安装的CentOS7mini版本，启动系统后网卡并没有启动，我做了如下操作：
 执行命令：
 
