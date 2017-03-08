@@ -110,6 +110,12 @@ dpkg-query -W -f='${Installed-Size;10}t${Package}n' | sort -k1,1n 以大小为�
 
 
 ### 用户和群组   
+w 查看当前活跃的用户列表  
+whoami 使用whoami命令查看你所使用的登录名称  
+id -un whoami命令的执行效果和id -un的效果完全一样   
+who 使用who命令查看（登录）用户名称及所启动的进程  
+last jason 随时查看系统的历史信息（曾经使用过系统的用户信息）  
+users users命令，可用于打印输出登录服务器的用户名称。该命令除了有help和version选项外，再没有其他选项。如果某用户使用了多个终端，则相应的会显示多个重复的用户名。  
 groupadd group_name 创建一个新用户组   
 groupdel group_name 删除一个用户组   
 groupmod -n new_group_name old_group_name 重命名一个用户组   
@@ -126,6 +132,18 @@ newgrp group_name 登陆进一个新的群组以改变新创建文件的预设�
 
 
 ### 文件的权限 - 使用 "+" 设置权限，使用 "-" 用于取消   
+umask=022  
+目录默认权限是： 777-umask  
+文件： 666-umask  
+普通用户的默认umask=002   
+umask 022 命令umask用以查看设置umask值  
+
+chmod u-s /bin/su
+
+chmod o+t  
+
+chattr +i test.txt  
+lsattr  
 ls -lh 显示权限   
 ls /tmp | pr -T5 -W$COLUMNS 将终端划分成5栏显示   
 chmod ugo+rwx directory1 设置目录的所有人(u)、群组(g)以及其他人(o)以读（r ）、写(w)和执行(x)的权限   
