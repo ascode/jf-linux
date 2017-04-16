@@ -15,7 +15,7 @@ GitLab-CI
 GitLab-Runner
 这个是脚本执行的承载者，.gitlab-ci.yml的script部分的运行就是由runner来负责的。GitLab-CI浏览过项目里的.gitlab-ci.yml文件之后，根据里面的规则，分配到各个Runner来运行相应的脚本script。这些脚本有的是测试项目用的，有的是部署用的。
 
-![GitLab-CI‰∏éGitLab-RunnerÂÖ≥Á≥ªÁ§∫ÊÑè](../asserts/gitlab-ci.png)
+![GitLab-CI与GitLab-Runner关系示意图](../asserts/gitlab-ci.png)
 GitLab-CI与GitLab-Runner关系示意图
 .gitlab-ci.yml
 这个是在git项目的根目录下的一个文件，记录了一系列的阶段和执行规则。GitLab-CI在push后会解析它，根据里面的内容调用runner来运行。
