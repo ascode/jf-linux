@@ -1,0 +1,52 @@
+# 主机HostKey值改变导致SSH连接报出警告
+
+ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@       WARNING: POSSIBLE DNS SPOOFING DETECTED!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+The ECDSA host key for gitlab.bgenius.cn has changed,
+and the key for the corresponding IP address 192.168.2.10
+is unknown. This could either mean that
+DNS SPOOFING is happening or the IP address for the host
+and its host key have changed at the same time.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:lDsG8Z600TkIU3uKo3G2ykejVKwlryKZuqRAwc8+y5E.
+Please contact your system administrator.
+Add correct host key in /Users/jinfei/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/jinfei/.ssh/known_hosts:7
+ECDSA host key for gitlab.bgenius.cn has changed and you have requested strict checking.
+Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+问题描述：
+当使用SSH连接主机时，会在本地的"known_hosts"文件中，增加一条保存所连主机HostKey值的记录，该记录的主键可以是所连主机的域名，也可以是所连主机的IP地址。
+当主机的HostKey值改变了，会给出类似如下警告：
+[plain] view plain copy
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!  
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!  
+It is also possible that a host key has just been changed.  
+The fingerprint for the RSA key sent by the remote host is  
+a3:8f:7c:07:c9:12:d8:aa:cd:c2:ba:b3:27:68:bc:c2.  
+Please contact your system administrator.  
+Add correct host key in /home/dsl/.ssh/known_hosts to get rid of this message.  
+Offending RSA key in /home/dsl/.ssh/known_hosts:8  
+RSA host key for xxx.xxx.xxx.xxx has changed and you have requested strict checking.  
+Host key verification failed.  
+当主机域名和IP地址对应的两个HostKey值不一致时，会给出类似如下警告：
+[plain] view plain copy
+Warning: the ECDSA host key for '[hostname]:port' differs from the key for the IP address '[ipaddress]:port'  
+Offending key for IP in /home/dsl/.ssh/known_hosts:5  
+Matching host key in /home/dsl/.ssh/known_hosts:147  
+
+解决方案：
+删除掉旧的HostKey值记录，下次重新保存新的就行。
+具体命令：使用VIM编辑器找到相应行，删除就行了！
+备注：理论上来说，"ssh-keygen -R hostname|ip"命令也可以达到目标，但是我试了几次，都失败了，不知道怎么回事。
