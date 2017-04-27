@@ -7,6 +7,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [vi命令](/vicommand.md)  
 * [需要熟悉的文件或者文件夹](folderinlinux.md)  
 * [shell 编程](/shell.md)  
+* [不是天天用就会忘记的命令](/usuallyforget.md)
 
 ## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
