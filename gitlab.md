@@ -57,3 +57,54 @@ The default account's username is root. Provide the password you created earlier
 ![](http://image.bgenius.cn/jinfei/github/zn-linux/Screen%20Shot%202017-01-01%20at%202.44.19%20AM.png)
 
 
+
+
+### 成功安装完之后  
+
+···
+
+
+       *.                  *.  
+      ***                 ***
+     *****               *****
+    .******             *******
+    ********            ********
+   ,,,,,,,,,***********,,,,,,,,,
+  ,,,,,,,,,,,*********,,,,,,,,,,,
+  .,,,,,,,,,,,*******,,,,,,,,,,,,
+      ,,,,,,,,,*****,,,,,,,,,.
+         ,,,,,,,****,,,,,,
+            .,,,***,,,,
+                ,*,.
+
+     _______ __  __          __
+    / ____(_) /_/ /   ____ _/ /_
+   / / __/ / __/ /   / __ `/ __ \
+  / /_/ / / /_/ /___/ /_/ / /_/ /
+  \____/_/\__/_____/\__,_/_.___/
+
+
+gitlab: Thank you for installing GitLab!
+gitlab: To configure and start GitLab, RUN THE FOLLOWING COMMAND:
+
+sudo gitlab-ctl reconfigure
+
+gitlab: GitLab should be reachable at http://localhost
+gitlab: Otherwise configure GitLab for your system by editing /etc/gitlab/gitlab.rb file
+gitlab: And running reconfigure again.
+gitlab: 
+gitlab: For a comprehensive list of configuration options please see the Omnibus GitLab readme
+gitlab: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md
+gitlab: 
+
+gitlab: GitLab now ships with a newer version of PostgreSQL (9.6.1), and will be used
+gitlab: as the default in the next major release. To upgrade, RUN THE FOLLOWING COMMANDS:
+
+sudo gitlab-ctl pg-upgrade
+
+gitlab: For more details, please see:
+gitlab: https://docs.gitlab.com/omnibus/settings/database.html#upgrade-packaged-postgresql-server
+gitlab: 
+It looks like GitLab has not been configured yet; skipping the upgrade script.
+
+···
