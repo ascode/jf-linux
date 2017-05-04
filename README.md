@@ -15,7 +15,10 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [在mac上安装mariadb](/task/install-mariadb-in-mac.md) 
 
 ## Issues  
-* [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)
+* [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
+
+## Linux下的开发团队相关工具  
+* [mattermost](tools/mattermost.md)
 
 ## 简单任务
 ### 添加用户
