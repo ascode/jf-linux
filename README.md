@@ -12,7 +12,9 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 ## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
 * [安装GitLab Community Edition (CE)](/gitlab.md)  
-* [在mac上安装mariadb](/task/install-mariadb-in-mac.md) 
+* [在mac上安装mariadb](/task/install-mariadb-in-mac.md)  
+* [centos下安装Tomcat](java/tomcat.md)  
+* [centos下安装Redis](redis/installredis.md)  
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
