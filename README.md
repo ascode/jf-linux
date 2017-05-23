@@ -22,7 +22,8 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 
 ## Linux下的开发团队相关工具  
 * [mattermost](tools/mattermost.md)  
-* [nvm](nodejs/nvm.md)
+* [nvm](nodejs/nvm.md)  
+* [gitlab ci](gitlab/ci.md)
 
 ## 简单任务
 ### 添加用户
