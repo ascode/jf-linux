@@ -15,6 +15,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [在mac上安装mariadb](/task/install-mariadb-in-mac.md)  
 * [centos下安装Tomcat](java/tomcat.md)  
 * [centos下安装Redis](redis/installredis.md)  
+* [centos下安装ELK](elk/installelk.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
