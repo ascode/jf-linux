@@ -39,7 +39,7 @@ sudo dnf install elasticsearch
 sudo zypper install elasticsearch 
 ```
 
-### 配置  
+### 配置ES  
 
 修改配置文件:  
 /etc/elasticsearch/elasticsearch.yml  
@@ -90,7 +90,7 @@ sudo journalctl --unit elasticsearch --since  "2016-10-30 18:17:16"
 Check man journalctl or https://www.freedesktop.org/software/systemd/man/journalctl.html for more command line options.
 
 
-### 查看是否运行
+### 查看ES是否运行
 ```
 curl -XGET 'localhost:9200/?pretty'
 ```
