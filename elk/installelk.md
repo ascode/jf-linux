@@ -123,3 +123,49 @@ open http://localhost:9100/
 ```
 
 
+### 安装logstash  
+
+YUM  
+Download and install the public signing key:
+```
+rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+```
+Add the following in your /etc/yum.repos.d/ directory in a file with a .repo suffix, for example logstash.repo
+```
+[logstash-5.x]
+name=Elastic repository for 5.x packages
+baseurl=https://artifacts.elastic.co/packages/5.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+```
+And your repository is ready for use. You can install it with:
+```
+sudo yum install logstash
+```
+
+### 测试logstash
+
+在控制台输入，输出到控制台：
+```
+/opt/logstash/bin/logstash -e 'input {stdin{}} output {stdout{}}'  
+```
+
+在控制台输入，输出到控制台，但是使用rubydebug可以让输出更加详细：
+```
+/opt/logstash/bin/logstash -e 'input {stdin{}} output {stdout{codec => rubydebug}}'
+```
+
+把内容写入elasticsearch:
+```
+/opt/logstash/bin/logstash -e 'input {stdin{}} output {elasticsearch{hosts=>["192.168.137.100:9200"] pprotocol => "http"}}'
+```
+
+把内容同时写入elasticsearch和stdout:
+```
+/opt/logstash/bin/logstash -e 'input {stdin{}} output{ elasticsearch {hosts => ["192.168.137.100:9200"]} stdout{codec => rubydebug}}'
+```
+
+
