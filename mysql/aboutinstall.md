@@ -1,3 +1,7 @@
+# centos7下mariadb 官方文档中的yum安装方法
+
+https://mariadb.com/kb/en/mariadb/yum/
+
 # centos7下mariadb 首次修改密码及忘记密码处理方法 
 
 ### 首次修改密码  
