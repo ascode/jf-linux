@@ -28,6 +28,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [mattermost](tools/mattermost.md)  
 * [nvm](nodejs/nvm.md)  
 * [gitlab ci](gitlab/ci.md)
+* [禅道](./zentao/transfer.md)
 
 ## 简单任务
 ### 添加用户
