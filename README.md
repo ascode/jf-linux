@@ -8,6 +8,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [需要熟悉的文件或者文件夹](folderinlinux.md)  
 * [shell 编程](/shell.md)  
 * [不是天天用就会忘记的命令](/usuallyforget.md)
+* [如何生成CA证书](/cert/ca.md)
 
 ## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
@@ -29,6 +30,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [nvm](nodejs/nvm.md)  
 * [gitlab ci](gitlab/ci.md)
 * [禅道](./zentao/transfer.md)
+* [安装jenkins](./jenkins/install.md)
 
 ## 简单任务
 ### 添加用户

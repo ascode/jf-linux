@@ -2,6 +2,18 @@
 
 https://mariadb.com/kb/en/mariadb/yum/
 
+
+yum安装源：
+~~~
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.1/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+~~~
+
+sudo yum install MariaDB*
+
 # centos7下mariadb 的最新版安装方法  
 In this article, we will outline the process of installing PHP 7.x MariaDB 10.1, the latest stable release of the MariaDB 10.x series at the time of writing this article, on CentOS 7.
 
