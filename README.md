@@ -24,6 +24,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
 * [centos7下mariadb 首次安装的问题，修改密码及忘记密码处理方法](mysql/aboutinstall.md)
 * [CentOS系统安装内核时提示/boot分区空间不足问题的解决方法](linux/bootsizenotenough.md)  
+* [CentOS6.3 重启后/etc/resolv.conf 被还原解决办法](/network/networkissue.md)
 
 ## Linux下的开发团队相关工具  
 * [mattermost](tools/mattermost.md)  
