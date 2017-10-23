@@ -19,6 +19,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [centos下安装ELK](elk/installelk.md)  
 * [centos下安装Mariadb](mysql/aboutinstall.md) centos7下mariadb 官方文档中的yum安装方法
 * [一个搭建openstack的环境](openstack/first.md)
+* [Postgresql安装和简单使用](postgresql/psqlsetupandsimpleuse.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
