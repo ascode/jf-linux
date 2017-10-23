@@ -32,6 +32,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [gitlab ci](gitlab/ci.md)
 * [禅道](./zentao/transfer.md)
 * [安装jenkins](./jenkins/install.md)
+* [Centos下源码安装git](./git/centos源码安装git.md)
 
 ## 简单任务
 ### 添加用户
