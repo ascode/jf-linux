@@ -70,3 +70,38 @@ yum erase postgresql96
 结束
 
 ```
+
+## Postgresql默认用户名与密码
+
+CREATE DATABASE语句的基本语法如下：
+```
+
+CREATE DATABASE dbname;
+```
+
+```
+在UNIX平台中安装PostgreSQL之后，PostgreSQL会在UNIX系统中创建一个名为“postgres”当用户。PostgreSQL的默认用户名和数据库也是“postgres”，
+不过没有默认密码。在安装PostgreSQL之后可以以默认用户登录，也可以创建新当用户名。
+以默认用户登录
+
+Yu@Coat ~ $ sudo su postgres           #切换至postgres
+postgres@Coat /home/Yu $ psql postgres#登入默认数据库
+[sudo] passwordfor Yu: 
+psql (9.1.6)
+Type "help" for help.
+以上命令也可以简化为：
+Yu@Coat ~ $ sudo -u postgres psql postgres
+登录之后给默认用户“postgres”设置密码
+postgres=# \password postgres          #给postgres用户设置密码
+Enter new password: 
+Enter it again: 
+postgres=#
+创建新用户
+
+在UNIX shell中“createuser”命令可以创建用户。
+sudo -u postgres createuser username#以“postgres”用户执行 createuser username语句
+如果有以下提示
+createuser: could not connect to database postgres:
+FATAL:  role "xxx" does not exist
+是因为只有UNIX系统中的postgres用户才能用createuser/dropuser创建或者删除数据库中的用户（role）。
+```
