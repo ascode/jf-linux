@@ -19,11 +19,13 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [centos下安装ELK](elk/installelk.md)  
 * [centos下安装Mariadb](mysql/aboutinstall.md) centos7下mariadb 官方文档中的yum安装方法
 * [一个搭建openstack的环境](openstack/first.md)
+* [Postgresql安装和简单使用](postgresql/psqlsetupandsimpleuse.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
 * [centos7下mariadb 首次安装的问题，修改密码及忘记密码处理方法](mysql/aboutinstall.md)
 * [CentOS系统安装内核时提示/boot分区空间不足问题的解决方法](linux/bootsizenotenough.md)  
+* [CentOS网络相关问题集锦](/network/networkissue.md)
 
 ## Linux下的开发团队相关工具  
 * [mattermost](tools/mattermost.md)  
@@ -31,6 +33,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [gitlab ci](gitlab/ci.md)
 * [禅道](./zentao/transfer.md)
 * [安装jenkins](./jenkins/install.md)
+* [Centos下源码安装git](./git/centos源码安装git.md)
 
 ## 简单任务
 ### 添加用户
