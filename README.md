@@ -35,6 +35,10 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [安装jenkins](./jenkins/install.md)
 * [Centos下源码安装git](./git/centos源码安装git.md)
 
+## Docker
+* etcd
+    [etcd](./etcd/etcd-index.md)
+
 ## 简单任务
 ### 添加用户
     useradd -d /home/newuser newuser 添加用户，并指定用户文件夹路径  
