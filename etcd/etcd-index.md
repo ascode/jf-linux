@@ -1,4 +1,5 @@
-etcd
+目录
+* [etcd静态配置部署]()
 
 ## 准备服务器
 ```
@@ -90,7 +91,21 @@ WantedBy=multi-user.target
 2. 要加入集群的几个机器etcd配置中ETCD_INITIAL_CLUSTER_TOKEN必须相同。
 
 启动命令
+```
 systemctl daemon-reload #修改了etcd.service之后需要执行这个命令
 systemctl start
 systemctl enable
+```
 
+## 测试
+在211服务器上输入
+```
+etcdctl set name "jinfei"
+jinfei
+```
+在212服务器上执行
+```
+etcdctl get name
+jinfei
+```
+说明已经跨服务器同步数据，安装成功。
