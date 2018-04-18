@@ -1,0 +1,37 @@
+gitlab:
+    container_name: gitlab
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    volumes: 
+      - d:\gitlabcedata2\config\:/etc/gitlab
+      - d:\gitlabcedata2\data\:/var/opt/gitlab
+      - d:\gitlabcedata2\logs\:/var/log/gitlab
+    ports:
+      - "3443:443"
+      - "380:80"
+      - "322:22"
+    expose:
+      - "443"
+      - "80"
+      - "22"
+    
+jbpm-showcase:
+    container_name: jbpm-showcase
+    image: jboss/jbpm-workbench-showcase
+    restart: always
+    ports:
+      - "18080:8080"
+      - "18001:8001"
+    expose:
+      - "18080"
+      - "18001"
+
+docker-registry-repo:
+    container_name: docker-registry-repo
+    image: registry
+    restart: always
+    privileged: true
+    ports:
+      - "5000:5000"
+    volumes:
+      - "D:\\Hyper-V\\registry-repo\\:/tmp/registry"
