@@ -35,3 +35,15 @@ docker-registry-repo:
       - "5000:5000"
     volumes:
       - "D:\\Hyper-V\\registry-repo\\:/tmp/registry"
+
+cnpm-local:
+    container_name: cnpm-local
+    #build: ./cnpm
+    image: hbrls/cnpm:0.0.5
+    ports:
+      - "7001:7001"
+      - "7002:7002"
+    volumes:
+      - "d:/cnpm/config:/var/app/cnpmjs.org/config"
+      - "d:/cnpm/customize/README.md:/var/app/cnpmjs.org/docs/web/readme.md"
+      - "d:/cnpm/storage:/var/www"
