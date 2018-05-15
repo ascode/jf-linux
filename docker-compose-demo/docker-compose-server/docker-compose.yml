@@ -1,11 +1,16 @@
+
+
 gitlab:
     container_name: gitlab
     image: gitlab/gitlab-ce:latest
     restart: always
     volumes: 
-      - d:\gitlabcedata2\config\:/etc/gitlab
-      - d:\gitlabcedata2\data\:/var/opt/gitlab
-      - d:\gitlabcedata2\logs\:/var/log/gitlab
+      - d:\DockerShare\GitlabCEData\config\:/etc/gitlab
+      # 以下注释的部分加上就不能正常启动
+      # - d:\DockerShare\GitlabCEData\data\backups:/var/opt/gitlab/backups
+      # - d:\DockerShare\GitlabCEData\data\git-data:/var/opt/gitlab/git-data
+      # - d:\DockerShare\GitlabCEData\data\registry:/var/opt/gitlab/registry
+      - d:\DockerShare\GitlabCEData\logs\:/var/log/gitlab
     ports:
       - "3443:443"
       - "380:80"
@@ -34,16 +39,31 @@ docker-registry-repo:
     ports:
       - "5000:5000"
     volumes:
-      - "D:\\Hyper-V\\registry-repo\\:/tmp/registry"
+      - "D:/DockerShare/RegistryRepo/:/var/lib/registry"
 
-cnpm-local:
-    container_name: cnpm-local
-    #build: ./cnpm
-    image: hbrls/cnpm:0.0.5
+
+
+mariadb1:
+    container_name: mariadb1
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Vosung123
     ports:
-      - "7001:7001"
-      - "7002:7002"
+      - 3306:3306
     volumes:
-      - "d:/cnpm/config:/var/app/cnpmjs.org/config"
-      - "d:/cnpm/customize/README.md:/var/app/cnpmjs.org/docs/web/readme.md"
-      - "d:/cnpm/storage:/var/www"
+      - D:/DockerShare/MariaDB/conf:/etc/mysql
+      - D:/DockerShare/MariaDB/data:/var/lib/mysql
+
+
+# cnpm-local:
+#     container_name: cnpm-local
+#     image: hbrls/cnpmjs
+#     restart: always
+#     ports:
+#       - "17001:7001"
+#       - "17002:7002"
+#     volumes:
+#       - "d:/cnpm/config:/var/app/cnpmjs.org/config"
+#       - "d:/cnpm/docs/:/var/app/cnpmjs.org/docs/"
+#       - "d:/cnpm/storage:/var/www"
