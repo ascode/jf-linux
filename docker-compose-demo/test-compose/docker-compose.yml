@@ -1,0 +1,11 @@
+visualizer:
+    container_name: visualizer
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    volumes:
+      - D:\DockerShare\visualizer:/var/run/docker.sock
+
+
+  docker run -it -d -p 8085:8080 -v d:\DockerShare\visualizer:/var/run/docker.sock dockersamples/visualizer:stable
+
