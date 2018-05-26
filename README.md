@@ -41,6 +41,9 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 
 [powerdesigner数据库分析](./powerdesigner/powerdesigner-db.md)
 
+## java
+* [java spring boot项目部署-上](./java/springboot-deploy.md)
+
 ## 简单任务
 ### 添加用户
     useradd -d /home/newuser newuser 添加用户，并指定用户文件夹路径  
