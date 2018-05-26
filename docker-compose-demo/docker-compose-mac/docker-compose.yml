@@ -1,0 +1,22 @@
+# jbpm-showcase:
+#     container_name: jbpm-showcase
+#     image: jboss/jbpm-workbench-showcase
+#     restart: always
+#     ports:
+#       - "18080:8080"
+#       - "18001:8001"
+#     expose:
+#       - "18080"
+#       - "18001"
+
+mariadb1:
+    container_name: mariadb1
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Vosung123
+    ports:
+      - 3306:3306
+    #volumes:
+      #- D:/DockerShare/MariaDB/conf:/etc/mysql
+      #- D:/DockerShare/MariaDB/data:/var/lib/mysql
