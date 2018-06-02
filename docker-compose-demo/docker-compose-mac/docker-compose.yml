@@ -1,13 +1,13 @@
-# jbpm-showcase:
-#     container_name: jbpm-showcase
-#     image: jboss/jbpm-workbench-showcase
-#     restart: always
-#     ports:
-#       - "18080:8080"
-#       - "18001:8001"
-#     expose:
-#       - "18080"
-#       - "18001"
+jbpm-showcase:
+    container_name: jbpm-showcase
+    image: jboss/jbpm-workbench-showcase
+    restart: always
+    ports:
+      - "18080:8080"
+      - "18001:8001"
+    expose:
+      - "18080"
+      - "18001"
 
 mariadb1:
     container_name: mariadb1
@@ -20,3 +20,9 @@ mariadb1:
     #volumes:
       #- D:/DockerShare/MariaDB/conf:/etc/mysql
       #- D:/DockerShare/MariaDB/data:/var/lib/mysql
+
+rabbitmq:
+  image: rabbitmq:management
+  ports:
+    - "5672:5672"
+    - "15672:15672"
