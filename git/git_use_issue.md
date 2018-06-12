@@ -1,9 +1,12 @@
 ## git push 到Total 2406 (delta 379), reused 0 (delta 0)就不动了
 
+git push 到Total 2406 (delta 379), reused 0 (delta 0)就不动了，许久之后可能出现Git: fatal: The remote end hung up unexpectedly 解决方法
+
 ### 尝试1
 因为提交的文件过大造成的错误；尝试修改一下postBuffer的参数：
 ```
 git config –global http.postBuffer 52428800
+git config --global https.postBuffer 1048576000
 ```
 
 ### 尝试2
