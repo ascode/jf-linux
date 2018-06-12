@@ -37,6 +37,9 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [安装jenkins](./jenkins/install.md)
 * [Centos下源码安装git](./git/centos源码安装git.md)
 
+## npm
+* [package.json中 npm依赖包版本前的符号的意义](./npm/preversionsymbolfornpm.md)
+
 ## Docker
 * etcd
     [etcd](./etcd/etcd-index.md)
