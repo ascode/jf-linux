@@ -26,6 +26,8 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [centos7下mariadb 首次安装的问题，修改密码及忘记密码处理方法](mysql/aboutinstall.md)
 * [CentOS系统安装内核时提示/boot分区空间不足问题的解决方法](linux/bootsizenotenough.md)  
 * [CentOS网络相关问题集锦](/network/networkissue.md)
+* [git push 到Total 2406 (delta 379), reused 0 (delta 0)就不动了](./git/git_use_issue.md)
+
 
 ## Linux下的开发团队相关工具  
 * [mattermost](tools/mattermost.md)  
