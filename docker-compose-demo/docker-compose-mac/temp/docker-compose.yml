@@ -1,0 +1,19 @@
+gitlab:
+    container_name: gitlab
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    volumes: 
+      - /Volumes/olive/DockerShare/gitlab-ce/config/:/etc/gitlab
+      # 以下注释的部分加上就不能正常启动
+      # - d:\DockerShare\GitlabCEData\data\backups:/var/opt/gitlab/backups
+      # - d:\DockerShare\GitlabCEData\data\git-data:/var/opt/gitlab/git-data
+      # - d:\DockerShare\GitlabCEData\data\registry:/var/opt/gitlab/registry
+      - /Volumes/olive/DockerShare/gitlab-ce/logs/:/var/log/gitlab
+    ports:
+      - "3443:443"
+      - "380:80"
+      - "322:22"
+    expose:
+      - "443"
+      - "80"
+      - "22"
