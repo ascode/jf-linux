@@ -17,9 +17,9 @@ mariadb1:
       MYSQL_ROOT_PASSWORD: Vosung123
     ports:
       - 3306:3306
-    #volumes:
-      #- D:/DockerShare/MariaDB/conf:/etc/mysql
-      #- D:/DockerShare/MariaDB/data:/var/lib/mysql
+    volumes:
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
 
 rabbitmq:
   image: rabbitmq:management
