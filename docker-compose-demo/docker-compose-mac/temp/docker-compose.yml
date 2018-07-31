@@ -9,10 +9,13 @@ orientdb1:
       - "2424:2424"
       - "2480:2480"
     volumes:
-      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
       - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
       - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
+# 如下config文件夹挂载在容器上会报错，容器无法启动
+#      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
 #    command: /orientdb/bin/server.sh  -Ddistributed=true
+    command: /orientdb/bin/server.sh  -Ddistributed=true
+
 
 
 # docker run -d --name orientdb -p 2424:2424 -p 2480:2480 \

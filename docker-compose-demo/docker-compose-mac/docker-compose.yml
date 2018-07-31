@@ -1,13 +1,3 @@
-jbpm-showcase:
-    container_name: jbpm-showcase
-    image: jboss/jbpm-workbench-showcase
-    restart: always
-    ports:
-      - "18080:8080"
-      - "18001:8001"
-    expose:
-      - "18080"
-      - "18001"
 
 mariadb1:
     container_name: mariadb1
@@ -21,12 +11,23 @@ mariadb1:
       - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
       - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
 
-rabbitmq:
-  image: rabbitmq:management
-  restart: always
-  ports:
-    - "5672:5672"
-    - "15672:15672"
+orientdb1:
+    container_name: orientdb1
+    image: orientdb
+    restart: always
+    environment: 
+      ORIENTDB_ROOT_PASSWORD: rootpwd
+      ORIENTDB_NODE_NAME: odb1
+    ports: 
+      - "2424:2424"
+      - "2480:2480"
+    volumes:
+      - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
+      - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
+# 如下config文件夹挂载在容器上会报错，容器无法启动
+#      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
+#    command: /orientdb/bin/server.sh  -Ddistributed=true
+    command: /orientdb/bin/server.sh  -Ddistributed=true
 
 
 sqlserver1:
@@ -42,3 +43,27 @@ sqlserver1:
 # volumes加上了就不能启动
 #    volumes:
 #      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data
+
+
+rabbitmq:
+  image: rabbitmq:management
+  restart: always
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+
+
+
+jbpm-showcase:
+    container_name: jbpm-showcase
+    image: jboss/jbpm-workbench-showcase
+    restart: always
+    ports:
+      - "18080:8080"
+      - "18001:8001"
+    expose:
+      - "18080"
+      - "18001"
+
+
+
