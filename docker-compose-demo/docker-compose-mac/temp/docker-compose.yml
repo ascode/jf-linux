@@ -1,12 +1,24 @@
-sqlserver1:
-    container_name: sqlserver1
-    image: microsoft/mssql-server-linux:latest
+orientdb1:
+    container_name: orientdb1
+    image: orientdb
     restart: always
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=Neural123*()
-      - MSSQL_PID=Enterprise
-    ports:
-      - 1433:1433
-#    volumes:
-#      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data
+    environment: 
+      ORIENTDB_ROOT_PASSWORD: rootpwd
+      ORIENTDB_NODE_NAME: odb1
+    ports: 
+      - "2424:2424"
+      - "2480:2480"
+    volumes:
+      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
+      - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
+      - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
+#    command: /orientdb/bin/server.sh  -Ddistributed=true
+
+
+# docker run -d --name orientdb -p 2424:2424 -p 2480:2480 \
+#     -v <config_path>:/orientdb/config \
+#     -v <databases_path>:/orientdb/databases \
+#     -v <backup_path>:/orientdb/backup \
+#     -e ORIENTDB_ROOT_PASSWORD=rootpwd \
+#     -e ORIENTDB_NODE_NAME=odb1 \
+#     orientdb /orientdb/bin/server.sh  -Ddistributed=true
