@@ -1,11 +1,12 @@
-mariadb1:
-    container_name: mariadb1
-    image: mariadb
+sqlserver1:
+    container_name: sqlserver1
+    image: microsoft/mssql-server-linux:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: Vosung123
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Neural123*()
+      - MSSQL_PID=Enterprise
     ports:
-      - 3306:3306
-    volumes:
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
+      - 1433:1433
+#    volumes:
+#      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data

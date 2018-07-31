@@ -17,9 +17,9 @@ mariadb1:
       MYSQL_ROOT_PASSWORD: Vosung123
     ports:
       - 3306:3306
-    #volumes:
-      #- D:/DockerShare/MariaDB/conf:/etc/mysql
-      #- D:/DockerShare/MariaDB/data:/var/lib/mysql
+    volumes:
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
 
 rabbitmq:
   image: rabbitmq:management
@@ -27,3 +27,18 @@ rabbitmq:
   ports:
     - "5672:5672"
     - "15672:15672"
+
+
+sqlserver1:
+    container_name: sqlserver1
+    image: microsoft/mssql-server-linux:latest
+    restart: always
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Neural123*()
+      - MSSQL_PID=Enterprise
+    ports:
+      - 1433:1433
+# volumes加上了就不能启动
+#    volumes:
+#      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data
