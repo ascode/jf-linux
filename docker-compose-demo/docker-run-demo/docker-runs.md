@@ -35,3 +35,19 @@ $ docker run -d --name orientdb -p 2424:2424 -p 2480:2480 \
     -e ORIENTDB_NODE_NAME=odb1 \
     orientdb /orientdb/bin/server.sh  -Ddistributed=true
 ```
+
+### Swagger-editor
+
+```
+docker pull swaggerapi/swagger-editor
+docker run -p 80:8080 swaggerapi/swagger-editor
+```
+
+### Swagger-UI
+
+```
+docker pull swaggerapi/swagger-ui
+docker run -p 80:8080 swaggerapi/swagger-ui
+docker run -p 80:8080 -e SWAGGER_JSON=/foo/swagger.json -v /bar:/foo swaggerapi/swagger-ui
+
+```

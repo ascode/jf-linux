@@ -1,27 +1,11 @@
-orientdb1:
-    container_name: orientdb1
-    image: orientdb
+mariadb:
+    container_name: mariadb
+    image: mariadb
     restart: always
-    environment: 
-      ORIENTDB_ROOT_PASSWORD: rootpwd
-      ORIENTDB_NODE_NAME: odb1
-    ports: 
-      - "2424:2424"
-      - "2480:2480"
+    environment:
+      MYSQL_ROOT_PASSWORD: Vosung123
+    ports:
+      - 3306:3306
     volumes:
-      - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
-      - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
-# 如下config文件夹挂载在容器上会报错，容器无法启动
-#      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
-#    command: /orientdb/bin/server.sh  -Ddistributed=true
-    command: /orientdb/bin/server.sh  -Ddistributed=true
-
-
-
-# docker run -d --name orientdb -p 2424:2424 -p 2480:2480 \
-#     -v <config_path>:/orientdb/config \
-#     -v <databases_path>:/orientdb/databases \
-#     -v <backup_path>:/orientdb/backup \
-#     -e ORIENTDB_ROOT_PASSWORD=rootpwd \
-#     -e ORIENTDB_NODE_NAME=odb1 \
-#     orientdb /orientdb/bin/server.sh  -Ddistributed=true
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql

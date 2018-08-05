@@ -1,6 +1,6 @@
 
-mariadb1:
-    container_name: mariadb1
+mariadb:
+    container_name: mariadb
     image: mariadb
     restart: always
     environment:
@@ -10,6 +10,18 @@ mariadb1:
     volumes:
       - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
       - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
+
+mariadb1:
+    container_name: mariadb1
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Vosung123
+    ports:
+      - 3306:3306
+    volumes:
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB1/conf:/etc/mysql
+      - /Users/jinfei/Laboratory/DockerShare/MariaDB1/data:/var/lib/mysql
 
 orientdb1:
     container_name: orientdb1
@@ -65,5 +77,20 @@ jbpm-showcase:
       - "18080"
       - "18001"
 
+swagger_editor:
+  container_name: swagger_editor
+  image: swaggerapi/swagger-editor
+  ports:
+    - 9080:8080
 
-
+swagger_ui:
+  container_name: swagger_ui
+  image: swaggerapi/swagger-ui
+  ports:
+    - 9081:8080
+# 如下是选填
+  environment:
+    SWAGGER_JSON: /foo/swagger.json
+    BASE_URL: /swagger
+  volumes:
+    - /Users/jinfei/Laboratory/DockerShare/Swagger_UI/bar:/foo
