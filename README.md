@@ -50,6 +50,9 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [java spring boot项目部署-上](./java/springboot-deploy.md)
 * [Mac OS X下安装和配置Maven](./java/maven-config.md)
 
+## mysql
+* [mysql 定时任务job](./mysql/mysqljob.md)
+
 ## 场景
 * [秒杀](./case_architecture/second-quick-buy.md)
 
