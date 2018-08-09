@@ -39,6 +39,7 @@ do
 # TODO:模拟停机_消毒
 # TODO:模拟停机_自检
 # TODO:模拟停机_故障
+# TODO:模拟停机_自动重启
 
 begin
 	start transaction;
