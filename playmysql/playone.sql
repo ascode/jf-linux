@@ -1,44 +1,38 @@
-# 业务
-# 定时添加用户，模拟用户注册
+# 主报表：全年龄段特征（年龄段分布比例，内容分类比例，学习总次数，购买比例，产品使用比例分布）
 
-#查看当前是否已开启事件调度器
-show variables like 'event_scheduler';
+# 年龄段钻取： 选中年龄段的共有特征（单段学习时长，内容分类比例，学习总次数，购买比例，产品使用比例分布）
 
-#要想保证能够执行event事件，就必须保证定时器是开启状态，默认为关闭状态
-set global event_scheduler =1;
-#或者set GLOBAL event_scheduler = ON;
 
-# 选择库
-use pconnect;
-SELECT * FROM dm_usr_users;
 
-# 如果原来存在该名字的任务计划则先删除
-drop event if exists generator_user;
+SELECT id_user,study_duration FROM dm_usr_study_record 
 
-delimiter $$
-# 每隔5秒钟
-create event IF NOT EXISTS generator_user
-on schedule every 5 Second starts timestamp '2018-08-09 00:00:00'
+select * from dm_usr_users order by id desc limit 5;
+
+select * from dm_usr_users limit 50;
+
+
+# 准备数据
+# 清理出生日期默认值，全部用随机数据
+drop procedure if exists  proc_update_dm_usr_users_born_date;
+
+CREATE PROCEDURE `proc_update_dm_usr_users_born_date` ()
+BEGIN
+declare year int;
+declare month int;
+declare day int;
+declare born_date varchar(50);
+declare start_id int default 1;
+set start_id = 1;
+
+WHILE (start_id < 1300)
 do
-begin
-    #开始事务
-	start transaction;
-	set @timenow=now();
-    set @maxid = (select max(id) from dm_usr_users);
-    set @firstname = concat('飞', @maxid) ;
-    set @lastname = concat('金',@maxid);
-    insert into dm_usr_users (first_name, last_name, source)  values(@firstname,@lastname,'generator');
-	commit;#提交事务
-end $$
-delimiter ;
+set year = round(1955 + rand()*1000000000%60);
+set month = round(rand()*1000000000%11)+1;
+set day = round(rand()*1000000000%27)+1;
+set born_date = concat(year,'-',month,'-',day);
+UPDATE dm_usr_users set born_date = born_date WHERE id = start_id;
+set start_id = start_id + 1;
+end while;
+END
 
-# 停止
-ALTER EVENT generator_user DISABLE;
-# 开启
-alter event generator_user enable;
-
-# 查看状态
-select * from mysql.event
-
-
-# 注意：真实的开发环境中，会遇到mysql服务重启或者断电的情况，此时则会出现事件调度器被关闭的情况，所有事件都不在起作用，要想解决这个办法，则需要在mysql.ini文件中加入event_scheduler = ON; 的语句
+call proc_update_dm_usr_users_born_date();
