@@ -1,11 +1,20 @@
-mariadb:
-    container_name: mariadb
-    image: mariadb
+gitlab-ce:
+    container_name: gitlab-ce
+    image: gitlab/gitlab-ce:latest
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: Vosung123
+    volumes: 
+      # 以下注释的部分加上就不能正常启动
+      # - d:\DockerShare\GitlabCEData\data\backups:/var/opt/gitlab/backups
+      # - d:\DockerShare\GitlabCEData\data\git-data:/var/opt/gitlab/git-data
+      # - d:\DockerShare\GitlabCEData\data\registry:/var/opt/gitlab/registry
+      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/log:/var/log/gitlab
+      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/opt:/var/opt/gitlab
+      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/etc:/etc/gitlab
     ports:
-      - 3306:3306
-    volumes:
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
+      - "3443:443"
+      - "380:80"
+      - "322:22"
+    expose:
+      - "443"
+      - "80"
+      - "22"
