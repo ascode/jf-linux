@@ -3,7 +3,7 @@
 # 年龄段钻取： 选中年龄段的共有特征（单段学习时长，内容分类比例，学习总次数，购买比例，产品使用比例分布）
 
 
-
+# 用户表的相关查询
 SELECT id_user,study_duration FROM dm_usr_study_record 
 
 select * from dm_usr_users order by id desc limit 5;
@@ -12,7 +12,7 @@ select * from dm_usr_users limit 50;
 
 
 # 准备数据
-# 清理出生日期默认值，全部用随机数据
+# 清理用户表出生日期默认值，全部用随机数据
 drop procedure if exists  proc_update_dm_usr_users_born_date;
 
 CREATE PROCEDURE `proc_update_dm_usr_users_born_date` ()
@@ -36,3 +36,8 @@ end while;
 END
 
 call proc_update_dm_usr_users_born_date();
+
+
+# 用户学习记录表
+
+SELECT * FROM dm_usr_study_record;
