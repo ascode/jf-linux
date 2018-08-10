@@ -126,15 +126,15 @@ BEGIN
         values (@speed,now(),1,'line1','Depalletiser');
         
         set @tmp_decide_speedforrate = rand();
-        while (@tmp_decide_speedforrate> 0.5 and @tmp_decide_speedforrate < 0.9)
-        do
-        #生产效率的微分记录
-        if (@speedforrate < 0.5) then
-        set @speedforrate = 0.5;
+        if (@tmp_decide_speedforrate> 0.5 and @tmp_decide_speedforrate < 0.9)
+        then
+            #生产效率的微分记录
+            if (@speedforrate < 0.5) then
+            set @speedforrate = 0.5;
+            end if;
+            insert into product_line_efficiency_differential_record (picking_time, rate, product_line_id, product_line_code, product_line_name)
+            values (now(),@speedforrate/100000,1,'line1','Depalletiser');
         end if;
-        insert into product_line_efficiency_differential_record (picking_time, rate, product_line_id, product_line_code, product_line_name)
-        values (now(),@speedforrate/100000,1,'line1','Depalletiser');
-        end while;
         
 		#insert into dm_usr_users (first_name, last_name, born_date, source)  values(@firstname,@lastname,@born_date,'generator');
 		commit;
