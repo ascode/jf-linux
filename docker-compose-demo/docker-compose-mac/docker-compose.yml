@@ -1,117 +1,135 @@
+version: '3.4'
 
-gitlab-ce:
-    container_name: gitlab-ce
-    image: gitlab/gitlab-ce:latest
+services:
+  nginx:
+      container_name: nginx
+      image: nginx
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/Nginx/conf.d:/etc/nginx/conf.d
+        - /Users/jinfei/Laboratory/DockerShare/Nginx/www:/www
+      ports:
+        - "80:80"
+      environment:
+        - NGINX_HOST=bgenius.cn
+        - NGINX_PORT=80
+      depends_on: 
+        - gitlab-ce
+      links: 
+        - gitlab-ce:gitlab-ce
+
+  gitlab-ce:
+      privileged: true
+      container_name: gitlab-ce
+      image: gitlab/gitlab-ce:latest
+      restart: always
+      volumes: 
+        - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/log:/var/log/gitlab
+        - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/opt:/var/opt/gitlab
+        - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/etc:/etc/gitlab
+      ports:
+        - "3443:443"
+        - "380:80"
+        - "322:22"
+      expose:
+        - "443"
+        - "80"
+        - "22"
+
+
+  mariadb:
+      container_name: mariadb
+      image: mariadb
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: Vosung123
+      ports:
+        - 3306:3306
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
+        - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
+
+  mariadb1:
+      container_name: mariadb1
+      image: mariadb
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: Vosung123
+      ports:
+        - 3306:3306
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/MariaDB1/conf:/etc/mysql
+        - /Users/jinfei/Laboratory/DockerShare/MariaDB1/data:/var/lib/mysql
+
+  orientdb1:
+      container_name: orientdb1
+      image: orientdb
+      restart: always
+      environment: 
+        ORIENTDB_ROOT_PASSWORD: rootpwd
+        ORIENTDB_NODE_NAME: odb1
+      ports: 
+        - "2424:2424"
+        - "2480:2480"
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
+        - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
+  # 如下config文件夹挂载在容器上会报错，容器无法启动
+  #      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
+  #    command: /orientdb/bin/server.sh  -Ddistributed=true
+      command: /orientdb/bin/server.sh  -Ddistributed=true
+
+  #VOLUME ["/orientdb/backup", "/orientdb/databases", "/orientdb/config"]
+
+
+  sqlserver1:
+      container_name: sqlserver1
+      image: microsoft/mssql-server-linux:latest
+      restart: always
+      environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=Neural123*()
+        - MSSQL_PID=Enterprise
+      ports:
+        - 1433:1433
+  # volumes加上了就不能启动
+  #    volumes:
+  #      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data
+
+
+  rabbitmq:
+    image: rabbitmq:management
     restart: always
-    volumes: 
-      # 以下注释的部分加上就不能正常启动
-      # - d:\DockerShare\GitlabCEData\data\backups:/var/opt/gitlab/backups
-      # - d:\DockerShare\GitlabCEData\data\git-data:/var/opt/gitlab/git-data
-      # - d:\DockerShare\GitlabCEData\data\registry:/var/opt/gitlab/registry
-      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/log:/var/log/gitlab
-      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/opt:/var/opt/gitlab
-      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/etc:/etc/gitlab
     ports:
-      - "3443:443"
-      - "380:80"
-      - "322:22"
-    expose:
-      - "443"
-      - "80"
-      - "22"
+      - "5672:5672"
+      - "15672:15672"
 
-mariadb:
-    container_name: mariadb
-    image: mariadb
-    restart: always
+
+
+  jbpm-showcase:
+      container_name: jbpm-showcase
+      image: jboss/jbpm-workbench-showcase
+      restart: always
+      ports:
+        - "18080:8080"
+        - "18001:8001"
+      expose:
+        - "18080"
+        - "18001"
+
+  swagger_editor:
+    container_name: swagger_editor
+    image: swaggerapi/swagger-editor
+    ports:
+      - 9080:8080
+
+  swagger_ui:
+    container_name: swagger_ui
+    image: swaggerapi/swagger-ui
+    ports:
+      - 9081:8080
+  # 如下是选填
     environment:
-      MYSQL_ROOT_PASSWORD: Vosung123
-    ports:
-      - 3306:3306
+      SWAGGER_JSON: /foo/swagger.json
+      BASE_URL: /swagger
     volumes:
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
-
-mariadb1:
-    container_name: mariadb1
-    image: mariadb
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: Vosung123
-    ports:
-      - 3306:3306
-    volumes:
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB1/conf:/etc/mysql
-      - /Users/jinfei/Laboratory/DockerShare/MariaDB1/data:/var/lib/mysql
-
-orientdb1:
-    container_name: orientdb1
-    image: orientdb
-    restart: always
-    environment: 
-      ORIENTDB_ROOT_PASSWORD: rootpwd
-      ORIENTDB_NODE_NAME: odb1
-    ports: 
-      - "2424:2424"
-      - "2480:2480"
-    volumes:
-      - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
-      - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
-# 如下config文件夹挂载在容器上会报错，容器无法启动
-#      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
-#    command: /orientdb/bin/server.sh  -Ddistributed=true
-    command: /orientdb/bin/server.sh  -Ddistributed=true
-
-
-sqlserver1:
-    container_name: sqlserver1
-    image: microsoft/mssql-server-linux:latest
-    restart: always
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=Neural123*()
-      - MSSQL_PID=Enterprise
-    ports:
-      - 1433:1433
-# volumes加上了就不能启动
-#    volumes:
-#      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data
-
-
-rabbitmq:
-  image: rabbitmq:management
-  restart: always
-  ports:
-    - "5672:5672"
-    - "15672:15672"
-
-
-
-jbpm-showcase:
-    container_name: jbpm-showcase
-    image: jboss/jbpm-workbench-showcase
-    restart: always
-    ports:
-      - "18080:8080"
-      - "18001:8001"
-    expose:
-      - "18080"
-      - "18001"
-
-swagger_editor:
-  container_name: swagger_editor
-  image: swaggerapi/swagger-editor
-  ports:
-    - 9080:8080
-
-swagger_ui:
-  container_name: swagger_ui
-  image: swaggerapi/swagger-ui
-  ports:
-    - 9081:8080
-# 如下是选填
-  environment:
-    SWAGGER_JSON: /foo/swagger.json
-    BASE_URL: /swagger
-  volumes:
-    - /Users/jinfei/Laboratory/DockerShare/Swagger_UI/bar:/foo
+      - /Users/jinfei/Laboratory/DockerShare/Swagger_UI/bar:/foo

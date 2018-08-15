@@ -1,20 +1,38 @@
-gitlab-ce:
-    container_name: gitlab-ce
-    image: gitlab/gitlab-ce:latest
-    restart: always
-    volumes: 
-      # 以下注释的部分加上就不能正常启动
-      # - d:\DockerShare\GitlabCEData\data\backups:/var/opt/gitlab/backups
-      # - d:\DockerShare\GitlabCEData\data\git-data:/var/opt/gitlab/git-data
-      # - d:\DockerShare\GitlabCEData\data\registry:/var/opt/gitlab/registry
-      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/log:/var/log/gitlab
-      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/opt:/var/opt/gitlab
-      - /Users/jinfei/Laboratory/DockerShare/gitlab-ce/etc:/etc/gitlab
-    ports:
-      - "3443:443"
-      - "380:80"
-      - "322:22"
-    expose:
-      - "443"
-      - "80"
-      - "22"
+version: '3.4'
+
+services:
+  nginx:
+      container_name: nginx
+      image: nginx
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/Nginx/conf.d:/etc/nginx/conf.d
+        - /Users/jinfei/Laboratory/DockerShare/Nginx/www:/www
+      ports:
+        - "80:80"
+      environment:
+        - NGINX_HOST=bgenius.cn
+        - NGINX_PORT=80
+      depends_on: 
+        - gitlab-ce
+      links: 
+        - gitlab-ce:gitlab-ce
+
+  orientdb1:
+      container_name: orientdb1
+      image: orientdb
+      restart: always
+      environment: 
+        ORIENTDB_ROOT_PASSWORD: rootpwd
+        ORIENTDB_NODE_NAME: odb1
+      ports: 
+        - "2424:2424"
+        - "2480:2480"
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
+        - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
+  # 如下config文件夹挂载在容器上会报错，容器无法启动
+  #      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
+  #    command: /orientdb/bin/server.sh  -Ddistributed=true
+      command: /orientdb/bin/server.sh  -Ddistributed=true
+
+  #VOLUME ["/orientdb/backup", "/orientdb/databases", "/orientdb/config"]
