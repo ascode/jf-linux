@@ -1,6 +1,8 @@
 version: '3.4'
 
 services:
+  # nginx挂载了conf.d文件夹之后不能直接启动，配置了privileged: true也不行，解决办法为，先不挂载conf.d文件夹直接启动，然后从容器里面拷贝出conf.d/default.conf文件，放在本机的conf.d文件夹，然后再挂载conf.d文件夹启动，这时候怎么启动都行，也就是说要挂载conf.d文件夹，必须本机的conf.d文件夹中有default.conf文件才能正常启动。
+  # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份本机conf.d文件夹即可
   nginx:
       container_name: nginx
       image: nginx
@@ -17,6 +19,7 @@ services:
       links: 
         - gitlab-ce:gitlab-ce
 
+  # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   gitlab-ce:
       privileged: true
       container_name: gitlab-ce
@@ -35,7 +38,7 @@ services:
         - "80"
         - "22"
 
-
+  # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   mariadb:
       container_name: mariadb
       image: mariadb
@@ -60,9 +63,12 @@ services:
         - /Users/jinfei/Laboratory/DockerShare/MariaDB1/conf:/etc/mysql
         - /Users/jinfei/Laboratory/DockerShare/MariaDB1/data:/var/lib/mysql
 
-  orientdb1:
-      container_name: orientdb1
+  # orientdb挂载config文件夹之后，直接启动会失败，解决方法为：先不挂载config文件夹，运行docker-compose up命令启动容器，然后挂载config文件夹，不删除已经创建的容器，重新启动容器覆盖原有容器，就可以正常启动了
+  # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
+  orientdb:
+      container_name: orientdb
       image: orientdb
+      privileged: true
       restart: always
       environment: 
         ORIENTDB_ROOT_PASSWORD: rootpwd
@@ -73,12 +79,9 @@ services:
       volumes:
         - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
         - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
-  # 如下config文件夹挂载在容器上会报错，容器无法启动
-  #      - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
-  #    command: /orientdb/bin/server.sh  -Ddistributed=true
+        - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
       command: /orientdb/bin/server.sh  -Ddistributed=true
 
-  #VOLUME ["/orientdb/backup", "/orientdb/databases", "/orientdb/config"]
 
 
   sqlserver1:
