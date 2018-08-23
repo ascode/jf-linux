@@ -7,8 +7,10 @@ services:
       container_name: nginx
       image: nginx
       volumes:
-        - /Users/jinfei/Laboratory/DockerShare/Nginx/conf.d:/etc/nginx/conf.d
+        # 如果要挂载到/etc/nginx，则需要先不挂载，直接启动一个nginx容器，然后把/etc/nginx文件夹拷贝出来作为要挂载的本地目录
+        - /Users/jinfei/Laboratory/DockerShare/Nginx/etc/nginx:/etc/nginx
         - /Users/jinfei/Laboratory/DockerShare/Nginx/www:/www
+        # - /Users/jinfei/Laboratory/DockerShare/Nginx/conf.d:/etc/nginx/conf.d
       ports:
         - "80:80"
       environment:
@@ -18,6 +20,19 @@ services:
         - gitlab-ce
       links: 
         - gitlab-ce:gitlab-ce
+
+  mongo-express:
+      container_name: mongodb
+      image: mongo
+      restart: always
+      ports:
+        - 8081:8081
+      environment:
+        ME_CONFIG_MONGODB_ADMINUSERNAME: root
+        ME_CONFIG_MONGODB_ADMINPASSWORD: Neural01@
+      volumes: 
+        - /Users/jinfei/Laboratory/DockerShare/MongoDB/data:/data/db
+        - /Users/jinfei/Laboratory/DockerShare/MongoDB/config:/data/configdb
 
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   gitlab-ce:
