@@ -1,12 +1,8 @@
-mongo-express:
-      container_name: mongodb
-      image: mongo
+  mongoclient:
+      container_name: mongoclient
+      image: mongoclient/mongoclient
       restart: always
       ports:
-        - 8081:8081
-      environment:
-        ME_CONFIG_MONGODB_ADMINUSERNAME: root
-        ME_CONFIG_MONGODB_ADMINPASSWORD: Neural01@
+        - 3000:3000
       volumes: 
-        - /Users/jinfei/Laboratory/DockerShare/MongoDB/data:/data/db
-        - /Users/jinfei/Laboratory/DockerShare/MongoDB/config:/data/configdb
+        - /Users/jinfei/Laboratory/DockerShare/mongoclient/data:/data/db
