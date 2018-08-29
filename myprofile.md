@@ -7,38 +7,31 @@
 28206254@qq.com 13971072895
 
 
-
-
-
-
-
-
-开发工具：Visual Studio、Visual Studio Code、Intellij Idea、
-
-常用数据库：Mysql、MongoDB、Sql Server、OrientDB、
-
-管理工具：Jira、Confluence、禅道、gitlab、
-
-CI工具：jenkins、gitlab-runner
-
-包管理工具：nuget、npm、Cocoapods、docker store、
-
-开发框架：Angular5、Ionic3、Nebular、Ngrx、.net core、autofac、dapper、EF、Log4Net、NLog、Spring boot、Mybatis、JPA、hibernate
-
-微服务框架：熟悉Ocelot、了解Service Fabric、了解Spring Cloud
-
 ## 自我评价
-我热爱编程，喜欢挑战，关注技术新发展，并善于将新技术无缝引入团队。曾经带领团队从传统ASP. Net 转型到MVC框架开发，从服务段渲染到Ajax结合服务端渲染，再如前端引入angularjs, bootstrap, 系统运維架构引入nginx做负载均衡反向代理，再如引入redis做缓存层，nodejs承载请求压力，改用mysql 集群替代sql server 等。每次引入新架构都解决了不少历史问题，提升用户体验。从纯.Net到丰富的架构，一路走来，我越來越喜欢开源，感觉架构越来越合理，但是我也明白这些都不是客户关心的，技术总是会改变的，只有成型的不断迭代的产品才能留住客户，守住行业，寻求突破，我觉得创新是积累出来的，希望以后能够专注在一个行业积累和创新。
-*／个人技术特点
-后端技术：熟悉nodejs、精通.net（C#语言）
-前端技术：熟悉前端angularjs1等框架、jquery、html/css/javascript，了解angularjs2和reactjs
-移动端：熟悉iOS（swift语言）、Cordova(PhoneGap)
-常用服务器和数据库：IIS、Tomcat、Nodejs（Koa和Express）、pm2、nginx、docker、mysql、sql sever、oracle，熟悉windows和linux多种服务
+我热爱编程，喜欢挑战，关注技术新发展，并善于将新技术无缝引入团队。曾经带领团队从传统ASP. Net 转型到MVC框架开发，从服务端渲染到Ajax结合服务端渲染，再如前端引入angularjs,Angular, bootstrap, 运維架构引入nginx做负载均衡反向代理,开发流程引入脚本自动化构建和CI工具，再如引入redis做缓存层，nodejs承载请求压力，改用mysql 集群替代sql server 等等。每次引入新架构都解决了不少历史问题，提升内外部用户体验。从纯.Net到丰富的架构，一路走来，我越來越喜欢开源世界，但是我也明白这些都不是客户关心的，技术总是会改变的，只有成型的不断迭代的产品才能留住客户，守住行业，寻求突破，我觉得创新是积累出来的，总是希望能够专注在一个行业积累和创新。
+* 个人优势
+1. 个人觉得主要的优势就是应用架构中，前后端、移动端Native、Hybird、PC端、微服务框架等技术方面都有参与过架构、设计、开发和管理。
+2. 做过传统复杂企业业务框架和业务的架构设计和开发，如可配置报表系统、基于元数据的实体管理等，做过互联网高并发、混合云架构项目的架构设计和开发。
+3. 有团队组建和管理经验、熟悉内部各种管理工具的运维和使用。
+
+* 个人熟悉过的部分技术和工具罗列
+后端技术：熟悉nodejs、精通.net、.net core（C#语言）、autofac、dapper、EF、Log4Net、NLog、使用Java Springboot、Mybatis、JPA、hibernate开发过内部管理软件，熟悉Maven pom组织项目的方式
+前端技术：熟悉前端angularjs、Angular5、Ionic3、Framework7、Nebular、Ngrx等框架,前端基础尚可（jquery、html/css/sass/javascript），了解Vue，使用Webpack、Gulp做项目构建
+移动端：熟悉iOS（swift语言）、Cordova(PhoneGap)、做过安卓程序（几年前）
+常用服务器和数据库：IIS、Tomcat、Nodejs Express、pm2、nginx、docker、mysql、sql sever、oracle，熟悉windows和linux多种服务
+微服务框架：熟悉Ocelot、了解Service Fabric、在Spring Cloud环境下做过服务开发
 常用的互联网云服务：阿里云的CDN、阿里云ECS、百度语音服务、Twitter Fabric、信鸽消息推送、Bugly的Bug跟踪等等
-独立作品：.net、Nodejs、IOS、皆有独立编码完成的线上作品
-*／项目管理经历
+容器、虚拟化：熟悉Hyper-V各种操作、熟悉Docker容器技术、能够编写Dockerfile、Docker-Compose
+常用数据库：Mysql、MongoDB、Sql Server、OrientDB
+管理工具：Jira、Confluence、禅道、gitlab、Project
+CI工具：jenkins、gitlab-runner
+包管理工具：nuget、npm、Cocoapods、docker store
+开发工具：Visual Studio、Visual Studio Code、Intellij Idea、
+设计工具：StarUml、Powerdesigner、Visio
+
+* 项目管理经历
 有多个项目或产品系统架构和总体管理经历。
-项目涉及行业：政府多个部门、医院、零售、仓储、物流运输、互联网、教育，相关项目自己基本都同时担任设计师或主程序员。这些项目的技术方向包括：WinForm、Nodejs Web、.net Web、安卓、IOS、微信企业号和服务号、嵌入式采集设备的应用层开发项目等
+项目涉及行业：政府多个部门、医院、零售、仓储、物流运输、互联网、教育，因为个人爱好，相关项目自己基本都同时担任设计师或主程序员。这些项目的技术方向包括：WinForm、Nodejs Web、.net Web、安卓、IOS、微信企业号和服务号、嵌入式采集设备的应用层开发项目等
 
 ## 求职意向
 | 期望薪资 | 30000-39999元/月 |
@@ -113,7 +106,20 @@ EnjoyChinese汉语学习平台，包括Web资源录入端、教师后台、运�
 我在公司担任.net高级软件工程师、主程序员，先后承担多个项目的核心开发和交付。另外负责OA产品中可拖拽工作流界面的流程处理模块研发(javascript/html/css和ajax技术)。
 
 ## 项目经验
-* 2015/9-至今Enjoychinese中文学习平台
+* 2015/9-2017/3 MES产品应用框架
+所属公司：
+上海恩家文化传播有限公司
+项目描述：
+谈应用框架，其基础是开发技术框架。
+整体上采用微服务架构思想，基于Ocelot做微服务框架，使用了服务发现、服务路由、负载均衡、统一配置服务等微服务框架功能，配合docker-compose进行服务编排。
+开发流程中使用jenkins、gitlab-runner进行持续集成。
+自主研发或者加强了前端组件，诸如table、tree、websocket、数据验证等
+自主研发或加强了后端组件，如消息推送应用框架（包括应用协议、服务端和客户端的协议解析模块、两端的处理模块等、浏览器端通讯组件）、根据数据库配置的API服务代码生成组件
+其他组件模块工具，如WinForm程序自动更新、可配置基于轮询数据检查和API注册的异构系统数据同步服务和工具、Windows应用程序监控和可用性保障的工具
+自主研发的应用框架包括基于元数据配置的实体管理和实体功能配置、用户可配置的报表工具和报表服务器、各种用户自定义的基础数据管理、消息平台
+技术架构方面，我负责技术框架选型、预研、部分Demo编码、部分难点功克，组织培训和后续的研发；应用框架方面，我负责应用框架的原型设计、架构设计、预研、Demo开发，组织培训和后续的研发、攻克难点部分等。
+
+* 2015/9-2017/3 Enjoychinese中文学习平台
 所属公司：
 上海恩家文化传播有限公司
 项目描述：
