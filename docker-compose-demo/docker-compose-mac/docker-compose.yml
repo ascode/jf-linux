@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.7'
 
 services:
   # nginx挂载了conf.d文件夹之后不能直接启动，配置了privileged: true也不行，解决办法为，先不挂载conf.d文件夹直接启动，然后从容器里面拷贝出conf.d/default.conf文件，放在本机的conf.d文件夹，然后再挂载conf.d文件夹启动，这时候怎么启动都行，也就是说要挂载conf.d文件夹，必须本机的conf.d文件夹中有default.conf文件才能正常启动。
@@ -25,6 +25,11 @@ services:
           reservations:
             cpus: '0.01'
             memory: 20M
+        restart_policy:
+          condition: any
+          delay: 5s
+          max_attempts: 3
+          window: 120s
       depends_on: 
         - gitlab-ce
       links: 
@@ -51,6 +56,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
   
   mongoclient:
       container_name: mongoclient
@@ -68,6 +78,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
 
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   gitlab-ce:
@@ -95,6 +110,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 1000M
+        restart_policy:
+          condition: any
+          delay: 5s
+          max_attempts: 3
+          window: 120s
 
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   mariadb:
@@ -116,6 +136,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: any
+          delay: 5s
+          max_attempts: 3
+          window: 120s
 
   mariadb1:
       container_name: mariadb1
@@ -136,6 +161,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
 
   # orientdb挂载config文件夹之后，直接启动会失败，解决方法为：先不挂载config文件夹，运行docker-compose up命令启动容器，然后挂载config文件夹，不删除已经创建的容器，重新启动容器覆盖原有容器，就可以正常启动了
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
@@ -162,6 +192,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: any
+          delay: 5s
+          max_attempts: 3
+          window: 120s
       command: /orientdb/bin/server.sh  -Ddistributed=true
 
   sqlserver1:
@@ -182,6 +217,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
   # volumes加上了就不能启动
   #    volumes:
   #      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data
@@ -202,6 +242,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
 
   jbpm-showcase:
       container_name: jbpm-showcase
@@ -221,6 +266,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
 
   swagger_editor:
       container_name: swagger_editor
@@ -236,6 +286,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
 
   swagger_ui:
       container_name: swagger_ui
@@ -251,6 +306,11 @@ services:
           reservations:
             cpus: '0.05'
             memory: 20M
+        restart_policy:
+          condition: on-failure
+          delay: 5s
+          max_attempts: 3
+          window: 120s
   # 如下是选填
       environment:
         SWAGGER_JSON: /foo/swagger.json
