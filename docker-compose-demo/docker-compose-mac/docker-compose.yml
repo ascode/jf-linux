@@ -6,6 +6,7 @@ services:
   nginx:
       container_name: nginx
       image: nginx
+      restart: always
       volumes:
         # 如果要挂载到/etc/nginx，则需要先不挂载，直接启动一个nginx容器，然后把/etc/nginx文件夹拷贝出来作为要挂载的本地目录
         - /Users/jinfei/Laboratory/DockerShare/Nginx/etc/nginx:/etc/nginx
@@ -19,10 +20,10 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 50M
           reservations:
-            cpus: '0.05'
+            cpus: '0.01'
             memory: 20M
       depends_on: 
         - gitlab-ce
@@ -62,7 +63,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 50M
           reservations:
             cpus: '0.05'
@@ -90,7 +91,7 @@ services:
         resources:
           limits:
             cpus: '0.10'
-            memory: 5000M
+            memory: 4000M
           reservations:
             cpus: '0.05'
             memory: 1000M
@@ -110,7 +111,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 500M
           reservations:
             cpus: '0.05'
@@ -130,7 +131,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 50M
           reservations:
             cpus: '0.05'
@@ -141,8 +142,8 @@ services:
   orientdb:
       container_name: orientdb
       image: orientdb
-      privileged: true
       restart: always
+      privileged: true
       environment: 
         ORIENTDB_ROOT_PASSWORD: rootpwd
         ORIENTDB_NODE_NAME: odb1
@@ -156,7 +157,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 500M
           reservations:
             cpus: '0.05'
@@ -196,7 +197,7 @@ services:
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 50M
           reservations:
             cpus: '0.05'
@@ -224,12 +225,13 @@ services:
   swagger_editor:
       container_name: swagger_editor
       image: swaggerapi/swagger-editor
+      restart: always
       ports:
         - 9080:8080
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 50M
           reservations:
             cpus: '0.05'
@@ -238,12 +240,13 @@ services:
   swagger_ui:
       container_name: swagger_ui
       image: swaggerapi/swagger-ui
+      restart: always
       ports:
         - 9081:8080
       deploy:
         resources:
           limits:
-            cpus: '0.10'
+            cpus: '0.05'
             memory: 50M
           reservations:
             cpus: '0.05'
