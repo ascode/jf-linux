@@ -16,6 +16,14 @@ services:
       environment:
         - NGINX_HOST=bgenius.cn
         - NGINX_PORT=80
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 50M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
       depends_on: 
         - gitlab-ce
       links: 
@@ -34,6 +42,14 @@ services:
       volumes: 
         - /Users/jinfei/Laboratory/DockerShare/MongoDB/data:/data/db
         - /Users/jinfei/Laboratory/DockerShare/MongoDB/config:/data/configdb
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 50M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
   
   mongoclient:
       container_name: mongoclient
@@ -43,6 +59,14 @@ services:
         - 3000:3000
       volumes: 
         - /Users/jinfei/Laboratory/DockerShare/mongoclient/data:/data/db
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 50M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
 
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   gitlab-ce:
@@ -62,6 +86,14 @@ services:
         - "443"
         - "80"
         - "22"
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 5000M
+          reservations:
+            cpus: '0.05'
+            memory: 1000M
 
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   mariadb:
@@ -75,6 +107,14 @@ services:
       volumes:
         - /Users/jinfei/Laboratory/DockerShare/MariaDB/conf:/etc/mysql
         - /Users/jinfei/Laboratory/DockerShare/MariaDB/data:/var/lib/mysql
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 500M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
 
   mariadb1:
       container_name: mariadb1
@@ -83,10 +123,18 @@ services:
       environment:
         MYSQL_ROOT_PASSWORD: Vosung123
       ports:
-        - 3306:3306
+        - 3307:3306
       volumes:
         - /Users/jinfei/Laboratory/DockerShare/MariaDB1/conf:/etc/mysql
         - /Users/jinfei/Laboratory/DockerShare/MariaDB1/data:/var/lib/mysql
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 50M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
 
   # orientdb挂载config文件夹之后，直接启动会失败，解决方法为：先不挂载config文件夹，运行docker-compose up命令启动容器，然后挂载config文件夹，不删除已经创建的容器，重新启动容器覆盖原有容器，就可以正常启动了
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
@@ -105,9 +153,15 @@ services:
         - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
         - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
         - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 500M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
       command: /orientdb/bin/server.sh  -Ddistributed=true
-
-
 
   sqlserver1:
       container_name: sqlserver1
@@ -119,19 +173,34 @@ services:
         - MSSQL_PID=Enterprise
       ports:
         - 1433:1433
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 3000M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
   # volumes加上了就不能启动
   #    volumes:
   #      - /Users/jinfei/Laboratory/DockerShare/MSSqlServer/mssql/data:/var/opt/mssql/data
 
 
   rabbitmq:
-    image: rabbitmq:management
-    restart: always
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-
-
+      container_name: rabbitmq
+      image: rabbitmq:management
+      restart: always
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 50M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
 
   jbpm-showcase:
       container_name: jbpm-showcase
@@ -143,21 +212,45 @@ services:
       expose:
         - "18080"
         - "18001"
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 2000M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
 
   swagger_editor:
-    container_name: swagger_editor
-    image: swaggerapi/swagger-editor
-    ports:
-      - 9080:8080
+      container_name: swagger_editor
+      image: swaggerapi/swagger-editor
+      ports:
+        - 9080:8080
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 50M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
 
   swagger_ui:
-    container_name: swagger_ui
-    image: swaggerapi/swagger-ui
-    ports:
-      - 9081:8080
+      container_name: swagger_ui
+      image: swaggerapi/swagger-ui
+      ports:
+        - 9081:8080
+      deploy:
+        resources:
+          limits:
+            cpus: '0.10'
+            memory: 50M
+          reservations:
+            cpus: '0.05'
+            memory: 20M
   # 如下是选填
-    environment:
-      SWAGGER_JSON: /foo/swagger.json
-      BASE_URL: /swagger
-    volumes:
-      - /Users/jinfei/Laboratory/DockerShare/Swagger_UI/bar:/foo
+      environment:
+        SWAGGER_JSON: /foo/swagger.json
+        BASE_URL: /swagger
+      volumes:
+        - /Users/jinfei/Laboratory/DockerShare/Swagger_UI/bar:/foo
