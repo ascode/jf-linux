@@ -1,1 +1,1 @@
-docker stop nginx mongodb mongoclient gitlab-ce mariadb mariadb1 orientdb sqlserver1 rabbitmq jbpm-showcase swagger_editor swagger_ui jenkins
+docker stop nginx mongodb mongoclient gitlab-ce mariadb mariadb1 orientdb sqlserver1 rabbitmq jbpm-showcase swagger_editor swagger_ui jenkins redis
