@@ -148,6 +148,18 @@ services:
         - 6379:6379
       volumes: 
         - /Users/jinfei/Laboratory/DockerShare/Redis/data:/data
+      deploy: 
+        resources: 
+          limits: 
+            cpus: '0.05'
+            memory: 500M
+          reservations:
+            cpus: '0.01'
+            memory: 200M
+        restart_policy:
+          condition: on-failure
+          max_attempts: 3
+          window: 120s
 
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
   mariadb:
