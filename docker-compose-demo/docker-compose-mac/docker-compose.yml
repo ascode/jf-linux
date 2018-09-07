@@ -216,35 +216,35 @@ services:
 
   # orientdb挂载config文件夹之后，直接启动会失败，解决方法为：先不挂载config文件夹，运行docker-compose up命令启动容器，然后挂载config文件夹，不删除已经创建的容器，重新启动容器覆盖原有容器，就可以正常启动了
   # 已经测试-不改变docker-compose.yml,直接挂载已有本机文件夹重建容器，可恢复以前的数据，也就是备份的时候直接备份被挂载的本机文件夹即可
-  orientdb:
-      container_name: orientdb
-      image: orientdb
-      restart: always
-      privileged: true
-      environment: 
-        ORIENTDB_ROOT_PASSWORD: rootpwd
-        ORIENTDB_NODE_NAME: odb1
-      ports: 
-        - "2424:2424"
-        - "2480:2480"
-      volumes:
-        - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
-        - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
-        - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
-      deploy:
-        resources:
-          limits:
-            cpus: '0.10'
-            memory: 1000M
-          reservations:
-            cpus: '0.05'
-            memory: 20M
-        restart_policy:
-          condition: any
-          delay: 5s
-          max_attempts: 3
-          window: 120s
-      command: /orientdb/bin/server.sh  -Ddistributed=true
+  # orientdb:
+  #     container_name: orientdb
+  #     image: orientdb
+  #     restart: always
+  #     privileged: true
+  #     environment: 
+  #       ORIENTDB_ROOT_PASSWORD: rootpwd
+  #       ORIENTDB_NODE_NAME: odb1
+  #     ports: 
+  #       - "2424:2424"
+  #       - "2480:2480"
+  #     volumes:
+  #       - /Users/jinfei/Laboratory/DockerShare/OrientDB/databases:/orientdb/databases
+  #       - /Users/jinfei/Laboratory/DockerShare/OrientDB/backup:/orientdb/backup
+  #       - /Users/jinfei/Laboratory/DockerShare/OrientDB/config:/orientdb/config
+  #     deploy:
+  #       resources:
+  #         limits:
+  #           cpus: '0.50'
+  #           memory: 500M
+  #         reservations:
+  #           cpus: '0.05'
+  #           memory: 20M
+  #       restart_policy:
+  #         condition: any
+  #         delay: 5s
+  #         max_attempts: 3
+  #         window: 120s
+  #     command: /orientdb/bin/server.sh  -Ddistributed=true
 
   sqlserver1:
       container_name: sqlserver1
