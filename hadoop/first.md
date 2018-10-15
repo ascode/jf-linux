@@ -289,3 +289,49 @@ YARN_RESOURCEMANAGER_USER=root
 YARN_NODEMANAGER_USER=root
 ```
 
+测试一下hdfs的yarn调度和mapreduce
+
+准备数据
+
+test.txt
+```
+hello a
+hello b
+```
+
+上传数据
+```
+bin/hadoop fs -put ./test.txt /input
+```
+
+运行：
+```
+bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.1.jar wordcount /input/test.txt /output/test
+```
+
+运行完毕查看结果：
+```
+[root@hadoop hadoop-3.1.1]# bin/hadoop fs -cat /output/test/part-r-00000
+a	1
+b	1
+hello	2
+```
+
+除此之外可以查看hadoop-mapreduce-examples-3.1.1.jar的命令说明
+```
+bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.1.jar
+```
+
+
+    <property>
+      <name>yarn.app.mapreduce.am.env</name>
+      <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+    </property>
+    <property>
+      <name>mapreduce.map.env</name>
+      <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+    </property>
+    <property>
+      <name>mapreduce.reduce.env</name>
+      <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
+    </property>
