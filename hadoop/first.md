@@ -322,16 +322,7 @@ hello	2
 bin/hadoop jar ./share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.1.jar
 ```
 
-
-    <property>
-      <name>yarn.app.mapreduce.am.env</name>
-      <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
-    </property>
-    <property>
-      <name>mapreduce.map.env</name>
-      <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
-    </property>
-    <property>
-      <name>mapreduce.reduce.env</name>
-      <value>HADOOP_MAPRED_HOME=${full path of your hadoop distribution directory}</value>
-    </property>
+至此，完成了
+1. 单节点伪集群hdfs的部署
+2. 部署了yarn调度
+3. 使用mapreduce做了一个词频统计的案例，从案例的运行记录中可以看到输入文件的拆分调度，以及执行过程。
