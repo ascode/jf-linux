@@ -34,7 +34,22 @@ curl -O https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm
 curl -O https://repo.mysql.com//mysql57-community-release-el7-10.noarch.rpm
 ```
 
+#### 安装mysql工具包
+```
 yum install mysql -y
+```
 
+#### 安装mysql服务器
+```
 yum -y install mysql-community-server
+```
 
+#### Mysql数据库设置
+```
+systemctl start  mysqld.service
+```
+
+#### 查看Mysql运行状态
+```
+systemctl status mysqld.service
+```
