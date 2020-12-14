@@ -44,7 +44,7 @@ yum install mysql -y
 yum -y install mysql-community-server
 ```
 
-#### Mysql数据库设置
+#### 启动数据库服务
 ```
 systemctl start  mysqld.service
 ```
@@ -52,4 +52,26 @@ systemctl start  mysqld.service
 #### 查看Mysql运行状态
 ```
 systemctl status mysqld.service
+```
+
+#### 找到mysql的初始临时密码
+此时MySQL已经开始正常运行，不过要想进入MySQL还得先找出此时root用户的密码，通过如下命令可以在日志文件中找出密码：
+```
+grep "password" /var/log/mysqld.log
+```
+
+#### 登录数据库
+```
+mysql -uroot -p
+```
+
+#### 修改密码
+此时不能做任何事情，因为MySQL默认必须修改密码之后才能操作数据库，如下命令修改密码
+```
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
+```
+
+#### 退出数据库客户端连接
+```
+exit
 ```
