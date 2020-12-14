@@ -19,13 +19,20 @@ ll /var/lib/mysql/
 
 #### 删除遗留文件
 ```
-rm -rf /etc/my.cnf
+rm /etc/my.cnf
+rm -rf /etc/my.cnf.d
 rm -rf /var/lib/mysql/
 ```
 
+#### 下载mysql8.0
+```
 curl -O https://repo.mysql.com//mysql80-community-release-el7-3.noarch.rpm
+```
 
+#### 下载mysql5.7
+```
 curl -O https://repo.mysql.com//mysql57-community-release-el7-10.noarch.rpm
+```
 
 yum install mysql -y
 
