@@ -118,9 +118,9 @@ dock_monitor = 28853
 dock_monitor_web = 28854
 
 [mysql]
-user = "dock"  // 需根据实际情况修改
-pwd = "jk*fl23@#139jNLKoi9"  // 需根据实际情况修改
-addr = "cdb-6nykpulk.cd.tencentcdb.com:10063"  // 需根据实际情况修改
+user = "******"  // 需根据实际情况修改
+pwd = "******"  // 需根据实际情况修改
+addr = "**"  // 需根据实际情况修改
 r_timeout = "5s"
 w_timeout = "5s"
 idle_conn = 8
@@ -141,8 +141,8 @@ normal_upload_web = 28855  // 需根据实际情况修改
 
 [mysql]
 user = "***"
-pwd = "987CwjtkMz"
-addr = "47.103.34.30:3306" 
+pwd = "******"
+addr = "********:3306" 
 r_timeout = "5s"
 w_timeout = "5s"
 idle_conn = 8
