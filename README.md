@@ -14,8 +14,6 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [如何生成CA证书](/cert/ca.md)
 * [安装和使用Supervisor](/supervisor.md)
 * [nginx使用指南](/nginx.md)
-
-## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
 * [安装GitLab Community Edition (CE)](/gitlab.md)  
 * [在mac上安装mariadb](/task/install-mariadb-in-mac.md)  
