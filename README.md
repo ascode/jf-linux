@@ -7,7 +7,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 ## 参考
 * [命令集合](/command.md)  
 * [讲解](/explication.md)  
-* [vi命令](/vicommand.md)  
+* [使用vi编辑器](/vicommand.md)  
 * [需要熟悉的文件或者文件夹](folderinlinux.md)  
 * [shell 编程](/shell.md)  
 * [不是天天用就会忘记的命令](/usuallyforget.md)
@@ -23,6 +23,9 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [centos下安装Mariadb](mysql/aboutinstall.md) centos7下mariadb 官方文档中的yum安装方法
 * [一个搭建openstack的环境](openstack/first.md)
 * [Postgresql安装和简单使用](postgresql/psqlsetupandsimpleuse.md)
+* [玩转CentOS7mini版本](/centos7pure.md)
+* [CentOS常用命令](/command.md)
+* [linux压缩解压](/zip.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
