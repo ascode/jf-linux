@@ -10,12 +10,15 @@
 安装前提条件中的中间件，请参考如下网址：  
 https://gitee.com/mcsk-open-source/maintain-memory
 
+**提示：您可以将前后端程序放到同一个目录下面进行部署，也可以分开部署。以下按照分开部署进行举例。**
 
 #### 二、前端部署和配置（nginx网站配置）
 
 ##### 2.1 拷贝程序
 前端程序是在一个名为dist的目录下面，假设我们将程序拷贝到
 /usr/share/nginx/html/dock-show-f/dist目录
+
+在/usr/share/nginx/html/dock-show-f/dist目录下新建export目录，导出的excel文件会临时存放在这个目录
 
 ##### 2.2 nginx配置
 nginx配置文件一般是/etc/nginx/nginx.conf，在修改配置前建议将nginx.conf文件进行备份：
@@ -86,7 +89,7 @@ nginx -s reload
 * /opt/bin/dock-show/upload/conf.toml
 * /opt/bin/dock-show/upload/upload
 
-新建文件夹/opt/bin/dock-show/uploadfiles
+新建文件夹/opt/bin/dock-show/uploadfiles，导入的excel文件会临时存放在这个目录
 
 ##### 3.2 文件说明
 服务端程序主要包括两个程序：
@@ -110,7 +113,7 @@ nginx -s reload
 本应用前端应用程序本身无需配置
 
 ###### 3.3.2 后端应用程序配置
-业务应用服务（dock）配置：  
+* 业务应用服务（dock）配置：  
 配置文件名为conf.toml，本例子中我们放置在/opt/bin/dock-show/conf.toml
 ```bash
 [ln_port]
@@ -131,9 +134,12 @@ db_name_dock    = "dock"  // 需根据实际情况修改
 db_name_task_center = "task_center"
 db_name_raw_data    = "raw_data"
 
+[export_data]
+doc_path = "/usr/share/nginx/html/dock-show-f/dist/export"  // 这里配置为前端网站根目录下面的export目录
+
 ```
 
-文件上传服务（upload）配置：  
+* 文件上传服务（upload）配置：  
 配置文件名称为conf.toml，本例子中我们放置在/opt/bin/dock-show/upload/conf.toml
 ```bash
 [ln_port]
@@ -152,6 +158,34 @@ open_conn = 32
 home = "https://***/merchant/home"
 ```
 
+* nginx配置
+```
+ server {
+
+        listen       80;
+        listen       [::]:80;
+        server_name  api-dock.bgenius.cn;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location /dock.DockMonitor {
+            proxy_pass   http://127.0.0.1:28854;
+        }
+
+        location /dock.DockMonitorUpload {
+            proxy_pass   http://127.0.0.1:28855;
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+}
+```
 
 ##### 3.4 中间件配置
 后端应用程序使用到的中间件包括：
