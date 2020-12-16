@@ -20,7 +20,17 @@ https://gitee.com/mcsk-open-source/maintain-memory
 
 在/usr/share/nginx/html/dock-show-f/dist目录下新建export目录，导出的excel文件会临时存放在这个目录
 
-##### 2.2 nginx配置
+##### 2.2 文件说明
+服务端程序主要包括两个程序：
+* 业务服务
+* 文件上传服务
+
+|文件或文件夹| 说明 |
+| --- | --- |
+| /usr/share/nginx/html/dock-show-f/dist | 前端程序（网站）根目录 |
+| /usr/share/nginx/html/dock-show-f/dist/export | 导出的Excel存放的目录（导出excel的时候，后端应用程序会将excel文件存放到这个目录供下载使用） |
+
+##### 2.3 nginx配置
 nginx配置文件一般是/etc/nginx/nginx.conf，在修改配置前建议将nginx.conf文件进行备份：
 ```bash
 cd /etc/nginx/
@@ -62,7 +72,7 @@ include /etc/nginx/conf.d/*.conf;
 nginx -t
 ```
 
-##### 2.3 启动nginx
+##### 2.4 启动nginx
 如果还未启动nginx，则使用如下命令进行启动
 ```bash
 nginx
