@@ -10,6 +10,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [shell 编程](/shell.md)  
 * [不是天天用就会忘记的命令](/usuallyforget.md)
 * [如何生成CA证书](/cert/ca.md)
+* [安装和使用Supervisor](/supervisor.md)
 
 ## 任务列表
 * [新装CentOS7mini版本启动网卡、替换yum源](/centos7pure.md)  
