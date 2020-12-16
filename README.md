@@ -20,7 +20,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [centos下安装Tomcat](java/tomcat.md)  
 * [centos下安装Redis](redis/installredis.md)  
 * [centos下安装ELK](elk/installelk.md)  
-* [centos下安装Mariadb](mysql/aboutinstall.md) centos7下mariadb 官方文档中的yum安装方法
+* [centos下安装Mariadb](mysql/aboutinstall.md) (centos7下mariadb 官方文档中的yum安装方法)
 * [一个搭建openstack的环境](openstack/first.md)
 * [Postgresql安装和简单使用](postgresql/psqlsetupandsimpleuse.md)
 * [玩转CentOS7mini版本](/centos7pure.md)
