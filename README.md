@@ -18,7 +18,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [安装GitLab Community Edition (CE)](/gitlab.md)  
 * [在mac上安装mariadb](/task/install-mariadb-in-mac.md)  
 * [centos下安装Tomcat](java/tomcat.md)  
-* [centos下安装Redis](redis/installredis.md)  
+* [centos下安装Redis和初步使用](redis/installredis.md)  
 * [centos下安装ELK](elk/installelk.md)  
 * [centos下安装Mariadb](mysql/aboutinstall.md) (centos7下mariadb 官方文档中的yum安装方法)
 * [一个搭建openstack的环境](openstack/first.md)
