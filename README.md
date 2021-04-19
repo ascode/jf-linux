@@ -1,4 +1,4 @@
-# zn-linux  
+# 美宸时科运维手册 
 linux study note for newbie. If you are a newbie, you can follow it to start. If you are a adept you should find some new change for centos or you can teach me some, and thank you. contact:[http://xiaoyouping.club](http://xiaoyouping.club) or 可以加qq群讨论：23592723
 
 ## 部署说明书
