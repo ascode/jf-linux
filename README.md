@@ -27,6 +27,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 * [CentOS常用命令](/command.md)
 * [linux压缩解压](/zip.md)
 * [Linux各种开机自动运行](linux/linux_on_start.md)
+* [git如何删除远程分支](git/delete_tag.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
