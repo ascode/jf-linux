@@ -59,6 +59,7 @@ linux study note for newbie. If you are a newbie, you can follow it to start. If
 
 ## mysql
 * [mysql 定时任务job](./mysql/mysqljob.md)
+* [Mysql用户和授权](./mysql/user_and_privilege.md)
 
 ## 场景
 * [秒杀](./case_architecture/second-quick-buy.md)
