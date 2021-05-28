@@ -214,7 +214,7 @@ crt是CA认证后的证书文，（windows下面的，其实是crt），签署�
 
  
 
-1.key的生成 
+1. key的生成 
 
 opensslgenrsa -des3 -out server.key 2048 
 
@@ -228,7 +228,7 @@ server.key就是没有密码的版本了。
 
  
 
-2.生成CA的crt
+2. 生成CA的crt
 
 opensslreq -new -x509 -key server.key -out ca.crt -days3650 
 
@@ -236,7 +236,7 @@ opensslreq -new -x509 -key server.key -out ca.crt -days3650
 
  
 
-3.csr的生成方法
+3. csr的生成方法
 
 opensslreq -new -key server.key -outserver.csr 
 
@@ -244,7 +244,7 @@ opensslreq -new -key server.key -outserver.csr
 
  
 
-4.crt生成方法
+4. crt生成方法
 
 CSR文件必须有CA的签名才可形成证书，可将此文件发送到verisign等地方由它验证，要交一大笔钱，何不自己做CA呢。
 
@@ -259,6 +259,7 @@ opensslx509 -req -days 3650 -in server.csr -CA ca.crt -CAkey server.key-CAcreate
 catserver.key server.crt > server.pem
 
 
+5. pfx证书分离
 
 我们平时在nginx中配置https类型访问的访问方式，会使用到crt证书，但有些情况是我们只有pfx类型的证书。
 
