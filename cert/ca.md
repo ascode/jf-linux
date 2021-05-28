@@ -257,3 +257,17 @@ opensslx509 -req -days 3650 -in server.csr -CA ca.crt -CAkey server.key-CAcreate
 证书合并：
 
 catserver.key server.crt > server.pem
+
+
+
+我们平时在nginx中配置https类型访问的访问方式，会使用到crt证书，但有些情况是我们只有pfx类型的证书。
+
+下面是将pfx转crt证书的方法：
+
+在linux服务器上运行如下命令：
+
+```
+openssl pkcs12 -in xxx.pfx -nodes -out server.pem
+openssl rsa -in server.pem -out server.key
+openssl x509 -in server.pem -out server.crt
+```
