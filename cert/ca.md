@@ -70,7 +70,7 @@ Enter pass phrase for root.key: ← 输入前面创建的密码
 
 4. 创建服务器证书密钥server.key：
 
-openssl genrsa –des3 -out server.key 2048
+openssl genrsa -des3 -out server.key 2048
 
 输出内容为：
 
