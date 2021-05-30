@@ -6,10 +6,11 @@
 
 - 找不到可用的证书
 - 需要配置双向SSL，但缺少客户端证书
-需要对证书作特别的定制
+- 需要对证书作特别的定制
+
 首先，无论是在Linux下还是在Windows下的Cygwin中，进行下面的操作前都须确认已安装OpenSSL软件包。
 
-1. 创建根证书密钥文件(自己做CA)root.key：
+**1. 创建根证书密钥文件(自己做CA)root.key：**
 
 openssl genrsa -des3 -out root.key
 
@@ -94,7 +95,7 @@ e is 65537 (0×10001)
 openssl rsa -in server.key -out server.key
 ```
 
-5.创建服务器证书的申请文件server.csr：
+5. 创建服务器证书的申请文件server.csr：
 
 ```
 openssl req -new -key server.key -out server.csr
