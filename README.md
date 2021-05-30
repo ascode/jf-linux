@@ -1,10 +1,11 @@
 # 美宸时科运维手册 
-linux study note for newbie. If you are a newbie, you can follow it to start. If you are a adept you should find some new change for centos or you can teach me some, and thank you. contact:[http://xiaoyouping.club](http://xiaoyouping.club) or 可以加qq群讨论：23592723
+
+本手册试用于参与美宸时科软件系统运维、实施的人员试用。如有疑问，请扫码联系公司客服。
 
 ## 部署说明书
 * [道口电子屏显示系统](/deploy/dock.md)
 
-## 参考
+## 技术参考
 * [命令集合](/command.md)  
 * [讲解](/explication.md)  
 * [使用vi编辑器](/vicommand.md)  
