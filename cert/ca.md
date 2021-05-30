@@ -25,7 +25,7 @@ Enter pass phrase for root.key: ← 输入一个新密码
 Verifying – Enter pass phrase for root.key: ← 重新输入一遍密码
 ```
 
-2. 创建根证书的申请文件root.csr：
+**2. 创建根证书的申请文件root.csr：**
 
 ```
 openssl req -new -key root.key -out root.csr
@@ -57,7 +57,7 @@ A challenge password []: ← 可以不输入
 An optional company name []: ← 可以不输入
 ```
 
-3. 创建一个自当前日期起为期十年的根证书root.crt：
+**3. 创建一个自当前日期起为期十年的根证书root.crt：**
 
 ```
 openssl x509 -req -days 3650 -sha1 -extensions v3_ca -signkey root.key -in root.req -out root.crt
@@ -73,7 +73,7 @@ Getting Private key
 Enter pass phrase for root.key: ← 输入前面创建的密码
 ```
 
-4. 创建服务器证书密钥server.key：
+**4. 创建服务器证书密钥server.key：**
 
 ```
 openssl genrsa -des3 -out server.key 2048
@@ -95,7 +95,7 @@ e is 65537 (0×10001)
 openssl rsa -in server.key -out server.key
 ```
 
-5. 创建服务器证书的申请文件server.csr：
+**5. 创建服务器证书的申请文件server.csr：**
 
 ```
 openssl req -new -key server.key -out server.csr
@@ -125,7 +125,7 @@ A challenge password []: ← 可以不输入
 An optional company name []: ← 可以不输入
 ```
 
-6. 创建自当前日期起有效期为期两年的服务器证书server.crt：
+**6. 创建自当前日期起有效期为期两年的服务器证书server.crt：**
 
 ```
 openssl x509 -req -days 730 -sha1 -extensions v3_req -CA root.crt -CAkey root.key -CAserial root.srl -CAcreateserial -in server.csr -out server.crt
@@ -140,7 +140,7 @@ Getting CA Private Key
 Enter pass phrase for root.key: ← 输入前面创建的密码
 ```
 
-7. 创建客户端证书密钥文件client.key：
+**7. 创建客户端证书密钥文件client.key：**
 
 ```
 openssl genrsa -des3 -out client.key 2048
@@ -158,7 +158,7 @@ Enter pass phrase for client.key: ← 输入一个新密码
 Verifying – Enter pass phrase for client.key: ← 重新输入一遍密码
 ```
 
-8. 创建客户端证书的申请文件client.csr：
+**8. 创建客户端证书的申请文件client.csr：**
 
 ```
 openssl req -new -key client.key -out client.csr
@@ -190,7 +190,7 @@ A challenge password []: ← 可以不填
 An optional company name []: ← 可以不填
 ```
 
-9. 创建一个自当前日期起有效期为两年的客户端证书client.crt：
+**9. 创建一个自当前日期起有效期为两年的客户端证书client.crt：**
 
 ```
 openssl x509 -req -days 730 -sha1 -extensions v3_req -CA root.crt -CAkey root.key -CAserial root.srl -CAcreateserial -in client.csr -out client.crt
@@ -206,7 +206,7 @@ Getting CA Private Key
 Enter pass phrase for root.key: ← 输入上面创建的密码
 ```
 
-10. 将客户端证书文件client.crt和客户端证书密钥文件client.key合并成客户端证书安装包client.pfx：
+**10. 将客户端证书文件client.crt和客户端证书密钥文件client.key合并成客户端证书安装包client.pfx：**
 
 ```
 openssl pkcs12 -export -in client.crt -inkey client.key -out client.pfx
@@ -221,9 +221,9 @@ Enter Export Password: ← 输入一个新的密码，用作客户端证书的�
 Verifying – Enter Export Password: ← 确认密码
 ```
 
-11. 保存生成的文件备用，其中server.crt和server.key是配置单向SSL时需要使用的证书文件，client.crt是配置双向SSL时需要使用的证书文件，client.pfx是配置双向SSL时需要客户端安装的证书文件
+保存生成的文件备用，其中server.crt和server.key是配置单向SSL时需要使用的证书文件，client.crt是配置双向SSL时需要使用的证书文件，client.pfx是配置双向SSL时需要客户端安装的证书文件
 
-     .crt文件和.key可以合到一个文件里面，把2个文件合成了一个.pem文件（直接拷贝过去就行了）
+.crt文件和.key可以合到一个文件里面，把2个文件合成了一个.pem文件（直接拷贝过去就行了）
 
 x509证书一般会用到三类文，key，csr，crt。
 
@@ -236,7 +236,7 @@ crt是CA认证后的证书文，（windows下面的，其实是crt），签署�
 
 ### 补充说明
 
-1. key的生成 
+**1. key的生成**
 
 ```
 opensslgenrsa -des3 -out server.key 2048 
@@ -252,7 +252,7 @@ server.key就是没有密码的版本了。
 
  
 
-2. 生成CA的crt
+**2. 生成CA的crt**
 ```
 opensslreq -new -x509 -key server.key -out ca.crt -days3650 
 ```
@@ -261,7 +261,7 @@ opensslreq -new -x509 -key server.key -out ca.crt -days3650
 
  
 
-3. csr的生成方法
+**3. csr的生成方法**
 ```
 opensslreq -new -key server.key -outserver.csr 
 ```
@@ -270,7 +270,7 @@ opensslreq -new -key server.key -outserver.csr
 
  
 
-4. crt生成方法
+**4. crt生成方法**
 
 CSR文件必须有CA的签名才可形成证书，可将此文件发送到verisign等地方由它验证，要交一大笔钱，何不自己做CA呢。
 ```
@@ -287,7 +287,7 @@ catserver.key server.crt > server.pem
 ```
 
 
-5. pfx证书分离
+**5. pfx证书分离**
 
 我们平时在nginx中配置https类型访问的访问方式，会使用到crt证书，但有些情况是我们只有pfx类型的证书。
 
