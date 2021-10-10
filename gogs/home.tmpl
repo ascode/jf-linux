@@ -1,0 +1,89 @@
+{{template "base/head" .}}
+<div class="home">
+	<div class="ui stackable middle very relaxed page grid">
+		<div class="sixteen wide center aligned centered column">
+			<div class="logo">
+				<img src="https://xiaoyouping.oss-cn-shanghai.aliyuncs.com/ci/logo/mcsk_logo/logo_line1_946_402.png" />
+			</div>
+			<div class="hero">
+				<h2>{{.i18n.Tr "app_desc"}}</h2>
+			</div>
+		</div>
+	</div>
+	{{if eq .Lang "zh-CN"}}
+		<div class="ui stackable middle very relaxed page grid">
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-flame"></i> 精诚合作
+				</h1>
+				<p class="large">
+					努力共造
+				</p>
+			</div>
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-device-desktop"></i> 创造价值
+				</h1>
+				<p class="large">
+					满足需求
+				</p>
+			</div>
+		</div>
+		<div class="ui stackable middle very relaxed page grid">
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-rocket"></i> 科技时尚
+				</h1>
+				<p class="large">
+					这是一种追求
+				</p>
+			</div>
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-code"></i> 创造未来
+				</h1>
+				<p class="large">
+					探索
+				</p>
+			</div>
+		</div>
+	{{else}}
+		<div class="ui stackable middle very relaxed page grid">
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-flame"></i> Easy to install
+				</h1>
+				<p class="large">
+					Simply <a target="_blank" rel="noopener noreferrer" href="https://gogs.io/docs/installation/install_from_binary.html">run the binary</a> for your platform. Or ship Gogs with <a target="_blank" rel="noopener noreferrer" href="https://github.com/gogs/gogs/tree/main/docker">Docker</a> or <a target="_blank" rel="noopener noreferrer" href="https://github.com/geerlingguy/ansible-vagrant-examples/tree/master/gogs">Vagrant</a>, or get it <a target="_blank" rel="noopener noreferrer" href="https://gogs.io/docs/installation/install_from_packages.html">packaged</a>.
+				</p>
+			</div>
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-device-desktop"></i> Cross-platform
+				</h1>
+				<p class="large">
+					Gogs runs anywhere <a target="_blank" rel="noopener noreferrer" href="http://golang.org/">Go</a> can compile for: Windows, macOS, Linux, ARM, etc. Choose the one you love!
+				</p>
+			</div>
+		</div>
+		<div class="ui stackable middle very relaxed page grid">
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-rocket"></i> Lightweight
+				</h1>
+				<p class="large">
+					Gogs has low minimal requirements and can run on an inexpensive Raspberry Pi. Save your machine energy!
+				</p>
+			</div>
+			<div class="eight wide center column">
+				<h1 class="hero ui icon header">
+					<i class="octicon octicon-code"></i> Open Source
+				</h1>
+				<p class="large">
+					It's all on <a target="_blank" rel="noopener noreferrer" href="https://github.com/gogits/gogs/">GitHub</a>! Join us by contributing to make this project even better. Don't be shy to be a contributor!
+				</p>
+			</div>
+		</div>
+	{{end}}
+</div>
+{{template "base/footer" .}}
