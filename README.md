@@ -29,14 +29,12 @@
 * [CentOS常用命令](/command.md)
 * [linux压缩解压](/zip.md)
 * [Linux各种开机自动运行](linux/linux_on_start.md)
-* [git如何删除远程分支](git/delete_tag.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
 * [centos7下mariadb 首次安装的问题，修改密码及忘记密码处理方法](mysql/aboutinstall.md)
 * [CentOS系统安装内核时提示/boot分区空间不足问题的解决方法](linux/bootsizenotenough.md)  
 * [CentOS网络相关问题集锦](/network/networkissue.md)
-* [git push 到Total 2406 (delta 379), reused 0 (delta 0)就不动了](./git/git_use_issue.md)
 
 ## Linux下的开发团队相关工具  
 * [mattermost](tools/mattermost.md)  
@@ -44,7 +42,6 @@
 * [gitlab ci](gitlab/ci.md)
 * [禅道](./zentao/transfer.md)
 * [安装jenkins](./jenkins/install.md)
-* [Centos下源码安装git](./git/centos源码安装git.md)
 
 ## npm
 * [package.json中 npm依赖包版本前的符号的意义](./npm/preversionsymbolfornpm.md)
@@ -83,6 +80,3 @@ Linux下如何创建新用户通常情况下，处于安全考虑，一般都给
 4. Linux系统需要主目录的拥有者必须是用户本身，因此，使用root创建主目录以后，还需将拥有者更换成新用户本身  
 
 
-```
-git push -u origin master
-```
