@@ -64,6 +64,10 @@
 ## 场景
 * [秒杀](./case_architecture/second-quick-buy.md)
 
+## windows工具
+
+[Win7小马激活工具](http://xz.fengcv.cn/soft/214389.html?wordId=313484894049)
+
 ## 简单任务
 ### 添加用户
     useradd -d /home/newuser newuser 添加用户，并指定用户文件夹路径  
