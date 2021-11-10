@@ -30,6 +30,7 @@
 * [linux压缩解压](/zip.md)
 * [Linux各种开机自动运行](linux/linux_on_start.md)
 * [CentOS7修改SSH端口](linux/ssh_port.md)
+* [IPv6](ipv6/ipv6dns.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
