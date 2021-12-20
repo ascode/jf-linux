@@ -32,6 +32,7 @@
 * [CentOS7修改SSH端口](linux/ssh_port.md)
 * [IPv6](ipv6/ipv6dns.md)
 * [IPv6操作](ipv6/ipv6opt.md)
+* [CentOS 7 安装 JAVA环境（JDK 1.8）](./java/java-setup-on-centos.md)
 
 ## Issues  
 * [主机HostKey值改变导致SSH连接发出警告](/issues/SPOOFINGDetected)  
