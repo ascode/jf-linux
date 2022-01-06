@@ -4,7 +4,7 @@
 
 ## 部署说明书
 * [场内物流收货道口电子屏显示系统部署说明](/deploy/dock.md)
-* [乐山谐波镜像部署](./deploy/leshan/leshan.md)
+* [乐山谐波镜像部署](./deploy/leshan.md)
 
 ## 技术参考
 * [命令集合](/command.md)  
