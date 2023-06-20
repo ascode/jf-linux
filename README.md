@@ -6,6 +6,7 @@
 * [场内物流收货道口电子屏显示系统部署说明](./deploy/dock.md)
 * [乐山电网谐波监测系统镜像部署](./deploy/leshan.md)
 * [Dcer（美宸时科数据导入工具）使用说明](./deploy/dcer.md)
+* [DMac（美宸时科控播系统）使用说明](./deploy/dmac/dmac.md)
 
 ## 技术参考
 * [命令集合](./command.md)  
